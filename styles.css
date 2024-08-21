@@ -152,13 +152,39 @@ input:focus {
 #studyMessage {
     font-size: 20px;
     color: #40E0D0; /* Turchese minerale */
-    margin-top: 60px; /* Aumentato il margine superiore per abbassare il messaggio */
+    margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
     text-align: center; /* Centro il testo */
 }
 
 @media (max-width: 600px) {
+    .container {
+        padding: 10px 10px 10px 10px; /* Ridotto padding su mobile */
+        width: 100%;
+        max-width: 100%; /* Assicurati che la larghezza sia piena su mobile */
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    #timer {
+        font-size: 60px; /* Ridotto leggermente il timer su mobile */
+        padding: 15px; /* Ridotto padding su mobile */
+    }
+
     #studyMessage {
         font-size: 18px;
-        margin-top: 20px; /* Margine superiore aumentato anche su mobile */
+        margin-top: 10px; /* Margine superiore ridotto su mobile */
+    }
+
+    button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+        max-width: 120px; /* Ridotto leggermente la larghezza su mobile */
     }
 }
