@@ -10,13 +10,14 @@ body {
     justify-content: center;
     min-height: 100vh;
     font-size: 16px;
+    overflow: hidden; /* Disabilita lo scorrimento */
 }
 
 .container {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
     border-radius: 16px; /* Angoli arrotondati per la bolla */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 40px;
+    padding: 20px 20px 10px 20px; /* Ridotto padding superiore e inferiore */
     max-width: 90%;
     width: 100%;
     display: flex;
@@ -39,7 +40,7 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     color: #ffffff;
-    margin-top: 10px;
+    margin-top: 5px; /* Ridotto il margine superiore */
     padding: 8px;
     border: 2px solid #ffffff;
     border-radius: 8px;
@@ -49,7 +50,7 @@ h1 {
 #timer {
     font-size: 72px;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 15px 0; /* Ridotto margine superiore e inferiore */
     color: #ffffff;
     border: 3px solid #ffffff;
     border-radius: 8px;
@@ -59,8 +60,8 @@ h1 {
 }
 
 #controls {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px; /* Ridotto margine superiore */
+    margin-bottom: 10px; /* Ridotto margine inferiore */
 }
 
 button {
@@ -147,25 +148,17 @@ input:focus {
     font-size: 16px;
 }
 
+/* Messaggio finale */
+#studyMessage {
+    font-size: 20px;
+    color: #40E0D0; /* Turchese minerale */
+    margin-top: 60px; /* Aumentato il margine superiore per abbassare il messaggio */
+    text-align: center; /* Centro il testo */
+}
+
 @media (max-width: 600px) {
-    #timer {
-        font-size: 48px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    button {
-        padding: 10px 16px;
-        font-size: 14px;
-    }
-
-    .container {
-        padding: 15px;
-    }
-
-    input {
-        max-width: 100%;
+    #studyMessage {
+        font-size: 18px;
+        margin-top: 60px; /* Margine superiore aumentato anche su mobile */
     }
 }
