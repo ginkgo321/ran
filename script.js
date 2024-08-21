@@ -5,12 +5,13 @@ let timeRemaining = 25 * 60;
 let workTime = 25 * 60;
 let breakTime = 5 * 60;
 let currentCycle = 1;
-const totalCycles = 4;
+let totalCycles = 4; // Variabile dinamica per il numero di cicli
 const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
 const cycleInfoElement = document.getElementById('cycleInfo');
 const toggleButton = document.getElementById('toggleButton');
+const toggleIcon = document.getElementById('toggleIcon');
 
 const quotes = [
     "Education is the most powerful weapon which you can use to change the world. – Nelson Mandela",
@@ -49,13 +50,13 @@ toggleButton.addEventListener('click', function() {
     if (!isRunning && !isPaused) {
         startTimer(timeRemaining);
         isRunning = true;
-        toggleButton.textContent = 'Pausa';
+        toggleIcon.className = 'fas fa-pause'; // Cambia l'icona in pausa quando il timer parte
         messageElement.textContent = '';
     } else if (isPaused) {
         startTimer(timeRemaining);
         isPaused = false;
         isRunning = true;
-        toggleButton.textContent = 'Pausa';
+        toggleIcon.className = 'fas fa-pause'; // Cambia l'icona in pausa quando il timer riparte
         messageElement.textContent = '';
     } else {
         pauseTimer();
@@ -69,8 +70,10 @@ document.getElementById('stopButton').addEventListener('click', function() {
 document.getElementById('saveSettings').addEventListener('click', function() {
     workTime = document.getElementById('workTime').value * 60;
     breakTime = document.getElementById('breakTime').value * 60;
+    totalCycles = document.getElementById('cycleCount').value;
     timeRemaining = workTime;
     timerElement.textContent = formatTime(timeRemaining);
+    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Aggiorna l'indicazione del ciclo
 });
 
 function startTimer(duration) {
@@ -94,7 +97,7 @@ function startTimer(duration) {
                 startTimer(workTime);
             } else {
                 messageElement.textContent = 'Hai completato tutti i cicli!';
-                toggleButton.textContent = 'Inizia';
+                toggleIcon.className = 'fas fa-play'; // Torna all'icona play
                 isRunning = false;
             }
         } else {
@@ -107,7 +110,7 @@ function pauseTimer() {
     clearInterval(timerInterval);
     isPaused = true;
     isRunning = false;
-    toggleButton.textContent = 'Riprendi';
+    toggleIcon.className = 'fas fa-play'; // Cambia l'icona in play quando in pausa
 }
 
 function resetTimer() {
@@ -119,7 +122,7 @@ function resetTimer() {
     cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
     timerElement.textContent = formatTime(timeRemaining);
     messageElement.textContent = '';
-    toggleButton.textContent = 'Inizia';
+    toggleIcon.className = 'fas fa-play'; // Torna all'icona play
     quoteElement.textContent = '';
 }
 
@@ -164,6 +167,6 @@ window.addEventListener('load', () => {
         currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1;
         cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
         timerElement.textContent = formatTime(timeRemaining);
-        toggleButton.textContent = isPaused ? 'Riprendi' : 'Inizia';
+        toggleIcon.className = isPaused ? 'fas fa-play' : 'fas fa-pause'; // Imposta l'icona corretta all'avvio
     }
 });

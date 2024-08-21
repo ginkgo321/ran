@@ -1,22 +1,22 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #0d0d0d; /* Sfondo leggermente più scuro */
-    color: #e0e0e0; /* Testo chiaro */
+    background-color: #0d0d0d;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Altezza minima */
-    font-size: 18px; /* Dimensione generale del font */
+    min-height: 100vh;
+    font-size: 16px; /* Dimensione font leggermente ridotta */
 }
 
 .container {
-    background-color: #161616; /* Contenitore leggermente più scuro */
+    background-color: #161616;
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7); /* Ombra più pronunciata */
-    padding: 40px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+    padding: 20px; /* Ridotto il padding per guadagnare spazio */
     max-width: 90%;
     width: 100%;
     display: flex;
@@ -25,76 +25,80 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 28px; /* Ridotto per guadagnare spazio su mobile */
     margin-bottom: 5px;
-    color: #00e5ff; /* Turchese più moderno */
+    color: #00e5ff;
 }
 
 #symbols {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 24px; /* Ridotto per guadagnare spazio su mobile */
+    margin-bottom: 10px;
 }
 
 #cycleInfo {
-    font-size: 20px;
+    font-size: 18px; /* Ridotto per guadagnare spazio su mobile */
     font-weight: bold;
-    color: #00e5ff;
-    margin-top: 20px;
-    padding: 10px;
-    border: 2px solid #00e5ff;
+    color: #ffffff;
+    margin-top: 10px; /* Ridotto il margine per guadagnare spazio */
+    padding: 8px;
+    border: 2px solid #ffffff;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
 #timer {
-    font-size: 96px;
+    font-size: 72px; /* Ridotto per guadagnare spazio su mobile */
     font-weight: bold;
-    margin: 20px 0;
+    margin: 10px 0;
     color: #ffffff;
     border: 3px solid #ffffff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     display: inline-block;
-    background-color: #121212; /* Sfondo scuro dietro al timer */
+    background-color: #121212;
 }
 
 #controls {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 button {
-    padding: 15px 30px;
-    font-size: 18px;
-    margin: 10px 10px;
+    padding: 12px 20px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 16px;
+    margin: 5px 5px; /* Ridotto per guadagnare spazio su mobile */
     cursor: pointer;
-    background-color: #00e5ff; /* Turchese più moderno */
-    color: #000000; /* Testo scuro sui pulsanti */
+    background-color: #00e5ff;
+    color: #000000;
     border: none;
     border-radius: 4px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #00b8cc; /* Colore leggermente più scuro al passaggio del mouse */
+    background-color: #00b8cc;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 button:active {
-    background-color: #0099aa; /* Colore più scuro quando premuto */
+    background-color: #0099aa;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
 }
 
+#toggleButton i, #stopButton i {
+    font-size: 20px; /* Ridotto per guadagnare spazio su mobile */
+}
+
 #message, #quote {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
     color: #b0b0b0;
     min-height: 24px;
 }
 
 label {
-    font-size: 20px;
+    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
     color: #e0e0e0;
     margin-bottom: 8px;
     display: block;
@@ -103,15 +107,15 @@ label {
 
 input {
     width: 100%;
-    max-width: 200px;
-    padding: 10px;
+    max-width: 150px; /* Ridotto per guadagnare spazio su mobile */
+    padding: 8px;
     border: 2px solid #00e5ff;
     border-radius: 4px;
     background-color: #1e1e1e;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transition: border-color 0.3s ease;
 }
 
@@ -122,33 +126,43 @@ input:focus {
 
 #customization {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #customization div {
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Ridotto per guadagnare spazio su mobile */
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #saveSettings {
     display: inline-block;
     margin-top: 10px;
+    padding: 10px 20px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
 }
 
 @media (max-width: 600px) {
     #timer {
-        font-size: 72px;
+        font-size: 48px; /* Ulteriormente ridotto su dispositivi molto piccoli */
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 24px; /* Ulteriormente ridotto su dispositivi molto piccoli */
     }
 
     button {
-        padding: 12px 20px;
-        font-size: 16px;
+        padding: 10px 16px;
+        font-size: 14px;
     }
 
     .container {
-        padding: 20px;
+        padding: 15px;
     }
 
     input {
