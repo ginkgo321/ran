@@ -31,69 +31,72 @@ body {
 /* Stili specifici per dispositivi mobili */
 @media (max-width: 600px) {
     .container {
-        padding: 5px;
-        max-width: 95%;
-        max-height: 95vh;
-        margin: 0 auto;
-        overflow: hidden;
+        padding: 5px !important;
+        max-width: 95% !important;
+        max-height: 95vh !important;
+        margin: 0 auto !important;
+        overflow: hidden !important;
     }
 
     #customization {
-        display: flex;
-        flex-direction: row; /* Disporre tutti gli elementi in una sola riga */
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 5px;
+        display: flex !important;
+        flex-direction: row !important; /* Disporre tutti gli elementi in una sola riga */
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-bottom: 5px !important;
+        padding: 0 !important; /* Elimina padding extra */
     }
 
     #customization div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        margin: 0; /* Elimina margini extra */
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        margin: 0 !important; /* Elimina margini extra */
     }
 
     label {
-        font-size: 10px; /* Riduce la dimensione del testo delle etichette */
-        margin: 0; /* Riduce al minimo lo spazio attorno alle etichette */
-        text-align: left;
+        font-size: 10px !important; /* Riduce la dimensione del testo delle etichette */
+        margin: 0 !important; /* Riduce al minimo lo spazio attorno alle etichette */
+        text-align: left !important;
+        line-height: 1 !important; /* Riduce lo spazio verticale delle etichette */
     }
 
     input {
-        font-size: 12px;
-        max-width: 45px; /* Riduce la larghezza degli input */
-        padding: 3px;
-        margin: 0;
-        height: 20px; /* Riduce l'altezza degli input */
-        text-align: center; /* Centro il testo all'interno dell'input */
+        font-size: 12px !important;
+        max-width: 40px !important; /* Riduce ulteriormente la larghezza degli input */
+        padding: 2px !important;
+        margin: 0 !important;
+        height: 20px !important; /* Riduce l'altezza degli input */
+        text-align: center !important;
+        line-height: 1 !important; /* Riduce lo spazio verticale all'interno degli input */
     }
 
     #studyMessage {
-        font-size: 14px;
-        margin-top: 10px;
-        text-align: center;
+        font-size: 14px !important;
+        margin-top: 10px !important;
+        text-align: center !important;
     }
 
     h1 {
-        font-size: 18px;
-        margin-bottom: 5px;
+        font-size: 18px !important;
+        margin-bottom: 5px !important;
     }
 
     #symbols, #cycleInfo, #timer, #controls {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     button {
-        padding: 6px 10px;
-        font-size: 12px;
+        padding: 6px 10px !important;
+        font-size: 12px !important;
     }
 
     #message, #quote {
-        font-size: 12px;
-        margin-top: 5px;
+        font-size: 12px !important;
+        margin-top: 5px !important;
     }
 }
 
