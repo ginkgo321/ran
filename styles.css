@@ -1,33 +1,34 @@
+/* Stili generali */
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #004d4d; /* Blu turchese scuro */
+    background-color: #004d4d;
     color: #e0e0e0;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    height: 100vh;
     font-size: 16px;
-    overflow: hidden; /* Disabilita lo scorrimento */
+    overflow: hidden;
 }
 
 .container {
-    background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
-    border-radius: 16px; /* Angoli arrotondati per la bolla */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 20px; /* Padding uniforme */
+    background-color: #1A1A1A;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    padding: 20px;
     max-width: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 90vh; /* Ridotto per lasciare spazio sopra e sotto */
-    box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
+    max-height: 90vh;
+    box-sizing: border-box;
 }
 
-/* Media query per iPhone e schermi piccoli */
+/* Stili specifici per dispositivi mobili */
 @media (max-width: 600px) {
     .container {
         padding: 10px;
@@ -39,36 +40,36 @@ body {
 
     #customization {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-bottom: 5px; /* Ridotto margine inferiore */
+        margin-bottom: 5px;
     }
 
     #customization div {
         display: flex;
-        flex-direction: row; /* Dispone il testo e l'input orizzontalmente */
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
-        margin-bottom: 5px; /* Ridotto margine inferiore */
+        flex: 1;
+        margin: 0 5px; /* Riduce lo spazio tra le sezioni */
     }
 
     label {
-        font-size: 12px; /* Ridotta la dimensione del testo */
-        margin-right: 5px; /* Ridotto lo spazio tra etichetta e input */
+        font-size: 12px; /* Riduce la dimensione delle etichette */
+        margin-bottom: 3px; /* Riduce lo spazio sotto l'etichetta */
     }
 
     input {
         font-size: 12px;
-        max-width: 40px; /* Ridotta ulteriormente la larghezza degli input */
+        max-width: 45px; /* Riduce ulteriormente la larghezza degli input */
         padding: 3px;
         text-align: center;
     }
 
     #studyMessage {
-        font-size: 14px; /* Ridotta la dimensione del messaggio finale */
-        margin-top: 10px; /* Ridotto margine superiore */
+        font-size: 14px;
+        margin-top: 10px;
         text-align: center;
     }
 
@@ -78,7 +79,7 @@ body {
     }
 
     #symbols, #cycleInfo, #timer, #controls {
-        font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
+        font-size: 16px;
     }
 
     button {
@@ -92,10 +93,11 @@ body {
     }
 }
 
+/* Stili desktop */
 h1 {
     font-size: 28px;
     margin-bottom: 5px;
-    color: #40E0D0; /* Colore turchese minerale */
+    color: #40E0D0;
 }
 
 #symbols {
@@ -107,9 +109,9 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     color: #ffffff;
-    margin-top: 5px; /* Ridotto il margine superiore */
+    margin-top: 5px;
     padding: 8px;
-    border: 2px solid #40E0D0; /* Colore turchese minerale */
+    border: 2px solid #40E0D0;
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -117,9 +119,9 @@ h1 {
 #timer {
     font-size: 72px;
     font-weight: bold;
-    margin: 15px 0; /* Ridotto margine superiore e inferiore */
+    margin: 15px 0;
     color: #ffffff;
-    border: 3px solid #40E0D0; /* Colore turchese minerale */
+    border: 3px solid #40E0D0;
     border-radius: 8px;
     padding: 20px;
     display: inline-block;
@@ -127,8 +129,8 @@ h1 {
 }
 
 #controls {
-    margin-top: 10px; /* Ridotto margine superiore */
-    margin-bottom: 10px; /* Ridotto margine inferiore */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 button {
@@ -136,7 +138,7 @@ button {
     font-size: 16px;
     margin: 5px 5px;
     cursor: pointer;
-    background-color: #40E0D0; /* Turchese minerale */
+    background-color: #40E0D0;
     color: #000000;
     border: none;
     border-radius: 4px;
@@ -145,12 +147,12 @@ button {
 }
 
 button:hover {
-    background-color: #36c1b5; /* Colore leggermente più scuro per il hover */
+    background-color: #36c1b5;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 button:active {
-    background-color: #2fa9a2; /* Colore più scuro per il click */
+    background-color: #2fa9a2;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
 }
 
@@ -177,7 +179,7 @@ input {
     width: 100%;
     max-width: 150px;
     padding: 8px;
-    border: 2px solid #40E0D0; /* Turchese minerale */
+    border: 2px solid #40E0D0;
     border-radius: 4px;
     background-color: #1e1e1e;
     color: #ffffff;
@@ -188,7 +190,7 @@ input {
 }
 
 input:focus {
-    border-color: #40E0D0; /* Turchese minerale per il focus */
+    border-color: #40E0D0;
     outline: none;
 }
 
@@ -218,7 +220,7 @@ input:focus {
 /* Messaggio finale */
 #studyMessage {
     font-size: 20px;
-    color: #40E0D0; /* Turchese minerale */
-    margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
-    text-align: center; /* Centro il testo */
+    color: #40E0D0;
+    margin-top: 20px;
+    text-align: center;
 }
