@@ -40,34 +40,34 @@ body {
 
     #customization {
         display: flex;
-        flex-direction: row;
+        flex-direction: row; /* Disporre tutti gli elementi in una sola riga */
         justify-content: space-between;
         align-items: center;
         width: 100%;
         margin-bottom: 5px;
-        padding: 0; /* Elimina padding extra */
     }
 
     #customization div {
         display: flex;
-        flex-direction: row; /* Dispone le etichette e gli input su una riga */
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0 5px; /* Spazio ridotto tra le sezioni */
+        justify-content: center;
+        width: auto;
+        margin: 0; /* Elimina margini extra */
     }
 
     label {
         font-size: 10px; /* Riduce la dimensione del testo delle etichette */
-        margin-right: 3px; /* Riduce lo spazio tra l'etichetta e l'input */
+        margin: 0; /* Riduce al minimo lo spazio attorno alle etichette */
+        text-align: left;
     }
 
     input {
-        font-size: 10px;
-        max-width: 40px; /* Riduce ulteriormente la larghezza degli input */
+        font-size: 12px;
+        max-width: 45px; /* Riduce la larghezza degli input */
         padding: 3px;
         margin: 0;
-        height: 25px; /* Riduce l'altezza degli input */
+        height: 20px; /* Riduce l'altezza degli input */
         text-align: center; /* Centro il testo all'interno dell'input */
     }
 
