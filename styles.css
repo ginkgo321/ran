@@ -29,15 +29,28 @@ body {
 
 /* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Disabilita lo scorrimento */
+    }
+
     .container {
         padding: 10px; /* Ridotto padding su dispositivi mobili */
         max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
-        max-height: 100vh; /* Usa tutta l'altezza disponibile */
+        width: 100%;
         margin: 0 auto; /* Centro la bolla e riduco margini */
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* Distribuisce meglio lo spazio verticale */
-        overflow: hidden; /* Disabilita lo scorrimento interno */
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%; /* La container occupa l'intera altezza disponibile */
+        box-sizing: border-box;
     }
 
     h1 {
@@ -79,7 +92,7 @@ body {
 
     #studyMessage {
         font-size: 14px; /* Ridotto la dimensione del messaggio finale */
-        margin-top: 5px; /* Ridotto margine superiore */
+        margin-top: auto; /* Fa sì che il margine superiore si adatti automaticamente */
         text-align: center;
     }
 }
