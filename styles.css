@@ -36,8 +36,7 @@ body {
         margin: 0 auto; /* Centro la bolla e riduco margini */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Allinea tutto all'inizio */
-        position: relative;
+        justify-content: space-between; /* Distribuisce meglio lo spazio verticale */
         overflow: hidden; /* Disabilita lo scorrimento interno */
     }
 
@@ -57,9 +56,9 @@ body {
     }
 
     #timer {
-        font-size: 44px; /* Ridotto ulteriormente il timer */
-        padding: 8px; /* Ridotto padding */
-        margin: 8px 0; /* Ridotto margine superiore e inferiore */
+        font-size: 40px; /* Ridotto ulteriormente il timer */
+        padding: 5px; /* Ridotto padding */
+        margin: 5px 0; /* Ridotto margine superiore e inferiore */
     }
 
     #controls {
@@ -79,14 +78,9 @@ body {
     }
 
     #studyMessage {
-        font-size: 12px; /* Ridotto la dimensione del messaggio finale */
-        margin-top: 10px; /* Margine ridotto */
-        position: absolute;
-        bottom: 10px; /* Posizionato in fondo alla schermata */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        text-align: center; /* Mantiene il testo centrato */
+        font-size: 14px; /* Ridotto la dimensione del messaggio finale */
+        margin-top: 5px; /* Ridotto margine superiore */
+        text-align: center;
     }
 }
 
