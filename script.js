@@ -1,7 +1,7 @@
 let timerInterval;
 let isPaused = false;
 let isRunning = false;
-let timeRemaining = 25 * 60;
+let timeRemaining = 25 * 60; // Tempo iniziale di 25 minuti
 let workTime = 25 * 60;
 let breakTime = 5 * 60;
 let currentCycle = 1;
@@ -13,6 +13,7 @@ const cycleInfoElement = document.getElementById('cycleInfo');
 const toggleButton = document.getElementById('toggleButton');
 const toggleIcon = document.getElementById('toggleIcon');
 
+// Citazioni
 const quotes = [
     "Education is the most powerful weapon which you can use to change the world. – Nelson Mandela",
     "The more that you read, the more things you will know, the more that you learn, the more places you'll go. – Dr. Seuss",
@@ -46,6 +47,7 @@ const quotes = [
     "Knowledge is power. – Sir Francis Bacon"
 ];
 
+// Funzione per gestire il click del pulsante di avvio/pausa
 toggleButton.addEventListener('click', function() {
     if (!isRunning && !isPaused) {
         startTimer(timeRemaining);
@@ -63,10 +65,12 @@ toggleButton.addEventListener('click', function() {
     }
 });
 
+// Funzione per gestire il click del pulsante di stop
 document.getElementById('stopButton').addEventListener('click', function() {
     resetTimer();
 });
 
+// Funzione per salvare le impostazioni
 document.getElementById('saveSettings').addEventListener('click', function() {
     workTime = document.getElementById('workTime').value * 60;
     breakTime = document.getElementById('breakTime').value * 60;
@@ -76,6 +80,7 @@ document.getElementById('saveSettings').addEventListener('click', function() {
     cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Aggiorna l'indicazione del ciclo
 });
 
+// Funzione per avviare il timer
 function startTimer(duration) {
     let startTime = Date.now();
     timerInterval = setInterval(function() {
@@ -106,6 +111,7 @@ function startTimer(duration) {
     }, 1000);
 }
 
+// Funzione per mettere in pausa il timer
 function pauseTimer() {
     clearInterval(timerInterval);
     isPaused = true;
@@ -113,6 +119,7 @@ function pauseTimer() {
     toggleIcon.className = 'fas fa-play'; // Cambia l'icona in play quando in pausa
 }
 
+// Funzione per resettare il timer
 function resetTimer() {
     clearInterval(timerInterval);
     isPaused = false;
@@ -126,17 +133,20 @@ function resetTimer() {
     quoteElement.textContent = '';
 }
 
+// Funzione per formattare il tempo (minuti:secondi)
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
+// Funzione per mostrare una citazione casuale
 function showRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteElement.textContent = quotes[randomIndex];
 }
 
+// Funzione per mostrare una notifica
 function showNotification(message) {
     if (Notification.permission === 'granted') {
         new Notification(message);
@@ -149,24 +159,16 @@ function showNotification(message) {
     }
 }
 
+// Funzione per riprodurre un suono
 function playSound() {
     const audio = new Audio('notification.wav');
     audio.play();
 }
 
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('timeRemaining', timeRemaining);
-    localStorage.setItem('isPaused', isPaused);
-    localStorage.setItem('currentCycle', currentCycle);
-});
-
+// Imposta il timer e l'icona all'apertura della pagina
 window.addEventListener('load', () => {
-    if (localStorage.getItem('timeRemaining')) {
-        timeRemaining = parseInt(localStorage.getItem('timeRemaining'), 10) || workTime;
-        isPaused = localStorage.getItem('isPaused') === 'true';
-        currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1;
-        cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
-        timerElement.textContent = formatTime(timeRemaining);
-        toggleIcon.className = isPaused ? 'fas fa-play' : 'fas fa-pause'; // Imposta l'icona corretta all'avvio
-    }
+    timeRemaining = workTime; // Imposta il tempo rimanente a 25 minuti
+    timerElement.textContent = formatTime(timeRemaining); // Mostra il tempo iniziale
+    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Mostra l'indicazione del ciclo iniziale
+    toggleIcon.className = 'fas fa-play'; // Imposta l'icona su "play"
 });
