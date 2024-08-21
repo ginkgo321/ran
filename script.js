@@ -3,6 +3,8 @@ let isPaused = false;
 let timeRemaining = 25 * 60; // Imposta 25 minuti come valore predefinito
 let workTime = 25 * 60; // Tempo di lavoro di default (in secondi)
 let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
+let currentCycle = 1; // Ciclo corrente, inizialmente impostato a 1
+const totalCycles = 4; // Numero totale di cicli
 const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
@@ -101,6 +103,16 @@ function startTimer(duration) {
             showRandomQuote();
             showNotification("Tempo scaduto!");
             playSound(); // Riproduce il suono di festeggiamento
+
+            // Aggiorna il ciclo corrente
+            if (currentCycle < totalCycles) {
+                currentCycle++;
+                cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
+                // Avvia automaticamente il nuovo ciclo di lavoro
+                startTimer(workTime);
+            } else {
+                messageElement.textContent = 'Hai completato tutti i cicli!';
+            }
         } else {
             timerElement.textContent = formatTime(timeRemaining);
         }
@@ -117,6 +129,8 @@ function resetTimer() {
     clearInterval(timerInterval);
     isPaused = false;
     timeRemaining = workTime;
+    currentCycle = 1; // Resetta il ciclo corrente al primo ciclo
+    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
     timerElement.textContent = formatTime(timeRemaining);
     messageElement.textContent = '';
     quoteElement.textContent = ''; // Rimuove eventuali citazioni precedenti
@@ -148,12 +162,15 @@ function playSound() {
 window.addEventListener('beforeunload', () => {
     localStorage.setItem('timeRemaining', timeRemaining);
     localStorage.setItem('isPaused', isPaused);
+    localStorage.setItem('currentCycle', currentCycle); // Salva anche il ciclo corrente
 });
 
 window.addEventListener('load', () => {
     if (localStorage.getItem('timeRemaining')) {
         timeRemaining = parseInt(localStorage.getItem('timeRemaining'), 10) || workTime;
         isPaused = localStorage.getItem('isPaused') === 'true';
+        currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1; // Riprendi il ciclo corrente
+        cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
         timerElement.textContent = formatTime(timeRemaining);
     }
 });
