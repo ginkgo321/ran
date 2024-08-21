@@ -11,10 +11,13 @@
     <div class="container">
         <h1>Il Pomodoro Timer di RAN!</h1>
         <div id="symbols">🐨 ❤️ 🦥</div>
+        
+        <div id="cycleInfo">Ciclo 1/4</div>
+
         <div id="timer">
             <span id="time">25:00</span>
         </div>
-        <div id="cycleInfo">Ciclo 1/4</div>
+        
         <div id="customization">
             <div>
                 <label for="workTime">Tempo di studio (minuti):</label>
@@ -24,12 +27,12 @@
                 <label for="breakTime">Tempo di pausa (minuti):</label>
                 <input type="number" id="breakTime" value="5" min="1" max="30">
             </div>
-            <button id="saveSettings">Salva 💾</button>
+            <button id="saveSettings">Salva Impostazioni</button>
         </div>
         <div id="controls">
-            <button id="startButton">Inizia ▶️</button>
-            <button id="pauseButton">Pausa ⏸️</button>
-            <button id="stopButton">Ferma ⏹️</button>
+            <!-- Unico tasto per Inizia/Pausa -->
+            <button id="toggleButton">Inizia</button>
+            <button id="stopButton">Ferma</button>
         </div>
         <p id="message"></p>
         <p id="quote"></p>
