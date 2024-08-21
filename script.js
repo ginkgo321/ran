@@ -1,6 +1,6 @@
 let timerInterval;
 let isPaused = false;
-let timeRemaining;
+let timeRemaining = 25 * 60; // Imposta 25 minuti come valore predefinito
 let workTime = 25 * 60; // Tempo di lavoro di default (in secondi)
 let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
 const timerElement = document.getElementById('time');
@@ -151,7 +151,7 @@ window.addEventListener('beforeunload', () => {
 
 window.addEventListener('load', () => {
     if (localStorage.getItem('timeRemaining')) {
-        timeRemaining = localStorage.getItem('timeRemaining');
+        timeRemaining = parseInt(localStorage.getItem('timeRemaining'), 10) || workTime;
         isPaused = localStorage.getItem('isPaused') === 'true';
         timerElement.textContent = formatTime(timeRemaining);
     }
