@@ -27,73 +27,57 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
-/* Media query per dispositivi mobili */
+/* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
     .container {
         padding: 10px;
         max-width: 95%;
-        max-height: 95vh; /* Mantiene il contenuto visibile */
+        max-height: 95vh;
         margin: 0 auto;
         overflow: hidden;
     }
 
     #customization {
         display: flex;
-        flex-direction: column;
-        align-items: stretch; /* Allinea gli elementi alla larghezza del contenitore */
+        flex-direction: row; /* Dispone gli elementi in una riga */
+        justify-content: space-between; /* Distribuisce uniformemente gli elementi */
+        align-items: center; /* Centra verticalmente il contenuto */
+        width: 100%;
+        margin-bottom: 10px; /* Spazio tra i pulsanti e il contenitore */
     }
 
     #customization div {
         display: flex;
         flex-direction: row; /* Dispone il testo e l'input orizzontalmente */
-        justify-content: space-between;
         align-items: center;
-        width: 100%; /* Assicura che gli elementi riempiano lo spazio disponibile */
-        margin-bottom: 10px; /* Mantiene una buona spaziatura tra gli elementi */
-        padding: 5px 10px; /* Aggiunge padding per migliorare l'estetica */
-        border-radius: 8px; /* Aggiunge angoli arrotondati per un look più morbido */
-        background-color: #2a2a2a; /* Colore di sfondo per separare le sezioni */
+        flex: 1; /* Gli elementi si adattano allo spazio disponibile */
+        margin-right: 10px; /* Spazio tra le etichette */
     }
 
     label {
-        font-size: 14px; /* Riduce la dimensione del testo per adattarlo meglio */
-        margin-right: 10px; /* Spazio tra il testo e l'input */
-        color: #e0e0e0; /* Mantiene un buon contrasto con lo sfondo */
+        font-size: 14px; /* Riduce la dimensione del testo */
+        margin-right: 5px; /* Spazio tra l'etichetta e l'input */
     }
 
     input {
         font-size: 14px;
-        max-width: 60px; /* Riduce la larghezza degli input */
+        max-width: 50px; /* Riduce la larghezza degli input */
         padding: 5px;
-        border-radius: 4px; /* Angoli arrotondati sugli input */
-        border: 1px solid #40E0D0; /* Bordo turchese per uniformità con il design */
-        background-color: #1e1e1e; /* Sfondo scuro per gli input */
-        color: #ffffff; /* Testo bianco per leggibilità */
-        text-align: center; /* Centra il testo negli input */
+        text-align: center; /* Centro il testo all'interno dell'input */
     }
 
     #studyMessage {
         font-size: 14px; /* Riduce la dimensione del messaggio finale */
-        margin-top: 20px; /* Aumenta lo spazio per separarlo dagli altri elementi */
-        color: #40E0D0; /* Colore coerente con il resto del design */
+        margin-top: 10px; /* Riduce il margine superiore */
+        text-align: center; /* Centro il messaggio finale */
     }
 
-    h1, #symbols, #cycleInfo, #timer, #controls {
-        font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
+    h1 {
+        font-size: 18px;
+        margin-bottom: 5px;
     }
 
-    button {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-
-    #message, #quote {
-        font-size: 12px;
-        margin-top: 5px;
-    }
-}
-
-    h1, #symbols, #cycleInfo, #timer, #controls {
+    #symbols, #cycleInfo, #timer, #controls {
         font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
     }
 
