@@ -45,25 +45,28 @@ body {
         align-items: center;
         width: 100%;
         margin-bottom: 5px;
+        padding: 0; /* Elimina il padding per risparmiare spazio */
     }
 
     #customization div {
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* Dispone etichette e input in orizzontale */
         align-items: center;
-        flex: 1;
-        margin: 0 5px; /* Riduce lo spazio tra le sezioni */
+        justify-content: space-between;
+        margin: 0 5px;
+        width: 33%; /* Ogni elemento prende un terzo dello spazio disponibile */
+        padding: 0;
     }
 
     label {
         font-size: 12px; /* Riduce la dimensione delle etichette */
-        margin-bottom: 3px; /* Riduce lo spazio sotto l'etichetta */
+        margin-right: 5px;
     }
 
     input {
         font-size: 12px;
-        max-width: 45px; /* Riduce ulteriormente la larghezza degli input */
-        padding: 3px;
+        max-width: 50px; /* Riduce la larghezza degli input */
+        padding: 3px; /* Riduce il padding interno */
         text-align: center;
     }
 
