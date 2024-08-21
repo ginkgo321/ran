@@ -1,3 +1,4 @@
+/* Regole generali */
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -27,17 +28,10 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
-/* Media query per iPhone e schermi piccoli */
+/* Media query per iPhone, Pixel e schermi piccoli */
 @media (max-width: 600px) {
     body {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Disabilita lo scorrimento */
+        height: 100vh;
     }
 
     .container {
@@ -51,21 +45,21 @@ body {
         align-items: center;
         height: 100%; /* La container occupa l'intera altezza disponibile */
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: hidden; /* Disabilita lo scorrimento */
     }
 
     h1 {
-        font-size: 16px; /* Ridotto il titolo */
+        font-size: 18px; /* Ridotto il titolo */
         margin-bottom: 4px;
     }
 
     #symbols {
-        font-size: 14px; /* Ridotto la dimensione dei simboli */
+        font-size: 16px; /* Ridotto la dimensione dei simboli */
         margin-bottom: 4px;
     }
 
     #cycleInfo {
-        font-size: 12px; /* Ridotta la dimensione del ciclo */
+        font-size: 14px; /* Ridotta la dimensione del ciclo */
         margin-bottom: 4px;
     }
 
@@ -81,7 +75,7 @@ body {
     }
 
     button {
-        padding: 4px 8px; /* Ridotto padding dei pulsanti */
+        padding: 6px 10px; /* Ridotto padding dei pulsanti */
         font-size: 12px; /* Ridotta la dimensione del testo */
     }
 
@@ -96,181 +90,6 @@ body {
         margin-top: 4px; /* Margine ridotto */
         text-align: center;
         padding: 4px 0;
+        color: #40E0D0; /* Turchese minerale per visibilità */
     }
-}
-
-
-    h1 {
-        font-size: 18px; /* Ridotto il titolo */
-        margin-bottom: 5px;
-    }
-
-    #symbols {
-        font-size: 16px; /* Ridotto la dimensione dei simboli */
-        margin-bottom: 5px;
-    }
-
-    #cycleInfo {
-        font-size: 14px; /* Ridotta la dimensione del ciclo */
-        margin-bottom: 5px;
-    }
-
-    #timer {
-        font-size: 40px; /* Ridotto ulteriormente il timer */
-        padding: 5px; /* Ridotto padding */
-        margin: 5px 0; /* Ridotto margine superiore e inferiore */
-    }
-
-    #controls {
-        margin-top: 5px; /* Ridotto margine superiore */
-        margin-bottom: 5px; /* Ridotto margine inferiore */
-    }
-
-    button {
-        padding: 6px 10px; /* Ridotto padding dei pulsanti */
-        font-size: 12px; /* Ridotta la dimensione del testo */
-    }
-
-    input {
-        font-size: 12px; /* Ridotta la dimensione del testo negli input */
-        max-width: 100px; /* Ridotta larghezza degli input */
-        padding: 5px; /* Ridotto padding interno */
-    }
-
-    #studyMessage {
-        font-size: 14px; /* Ridotto la dimensione del messaggio finale */
-        margin-top: auto; /* Fa sì che il margine superiore si adatti automaticamente */
-        text-align: center;
-    }
-}
-
-h1 {
-    font-size: 28px;
-    margin-bottom: 5px;
-    color: #40E0D0; /* Colore turchese minerale */
-}
-
-#symbols {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#cycleInfo {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-top: 5px; /* Ridotto il margine superiore */
-    padding: 8px;
-    border: 2px solid #40E0D0; /* Colore turchese minerale */
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-#timer {
-    font-size: 72px;
-    font-weight: bold;
-    margin: 15px 0; /* Ridotto margine superiore e inferiore */
-    color: #ffffff;
-    border: 3px solid #40E0D0; /* Colore turchese minerale */
-    border-radius: 8px;
-    padding: 20px;
-    display: inline-block;
-    background-color: #121212;
-}
-
-#controls {
-    margin-top: 10px; /* Ridotto margine superiore */
-    margin-bottom: 10px; /* Ridotto margine inferiore */
-}
-
-button {
-    padding: 12px 20px;
-    font-size: 16px;
-    margin: 5px 5px;
-    cursor: pointer;
-    background-color: #40E0D0; /* Turchese minerale */
-    color: #000000;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover {
-    background-color: #36c1b5; /* Colore leggermente più scuro per il hover */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
-}
-
-button:active {
-    background-color: #2fa9a2; /* Colore più scuro per il click */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
-}
-
-#toggleButton i, #stopButton i {
-    font-size: 20px;
-}
-
-#message, #quote {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #b0b0b0;
-    min-height: 24px;
-}
-
-label {
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-bottom: 8px;
-    display: block;
-    text-align: center;
-}
-
-input {
-    width: 100%;
-    max-width: 150px;
-    padding: 8px;
-    border: 2px solid #40E0D0; /* Turchese minerale */
-    border-radius: 4px;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 10px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus {
-    border-color: #40E0D0; /* Turchese minerale per il focus */
-    outline: none;
-}
-
-#customization {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#customization div {
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#saveSettings, #defaultSettings {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-/* Messaggio finale */
-#studyMessage {
-    font-size: 20px;
-    color: #40E0D0; /* Turchese minerale */
-    margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
-    text-align: center; /* Centro il testo */
 }
