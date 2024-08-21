@@ -42,7 +42,7 @@ button:active {
     background-color: #777; /* Colore di sfondo dei pulsanti quando premuti */
 }
 
-#message, #quote {
+#message, #quote, #cycleInfo {
     margin-top: 20px;
     font-size: 18px;
 }
