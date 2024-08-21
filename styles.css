@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #2c2a4a; /* Blu-viola scuro */
+    background-color: #004d4d; /* Blu turchese scuro */
     color: #e0e0e0;
     margin: 0;
     padding: 20px; /* Aggiunto padding per creare margini */
@@ -159,11 +159,17 @@ input:focus {
 
 @media (max-width: 600px) {
     .container {
-        padding: 10px 10px 10px 10px; /* Ridotto padding su mobile */
+        background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
+        border-radius: 16px; /* Angoli arrotondati per la bolla */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
+        padding: 15px 15px 10px 15px; /* Ridotto padding superiore e inferiore */
+        max-width: 90%;
         width: 100%;
-        max-width: 100%; /* Assicura che la larghezza sia piena su mobile */
-        height: auto; /* Altezza automatica per adattarsi al contenuto */
-        max-height: 100vh; /* Limita l'altezza massima alla dimensione della finestra */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto; /* Garantisce che l'altezza si adatti al contenuto */
+        max-height: calc(100vh - 40px); /* Assicura che la bolla contenitrice non sia mai più alta dello schermo */
         overflow: hidden; /* Evita che il contenuto esca dai bordi */
     }
 
