@@ -10,7 +10,8 @@ body {
     justify-content: center;
     height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
     font-size: 16px;
-    overflow: hidden; /* Disabilita lo scorrimento */
+    overflow-y: auto; /* Permette lo scorrimento verticale */
+    overflow-x: hidden; /* Mantiene nascosto lo scorrimento orizzontale per evitare che la pagina scorra lateralmente */
 }
 
 .container {
