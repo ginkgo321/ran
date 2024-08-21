@@ -159,6 +159,6 @@ input:focus {
 @media (max-width: 600px) {
     #studyMessage {
         font-size: 18px;
-        margin-top: 60px; /* Margine superiore aumentato anche su mobile */
+        margin-top: 20px; /* Margine superiore aumentato anche su mobile */
     }
 }
