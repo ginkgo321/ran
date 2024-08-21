@@ -4,11 +4,11 @@ body {
     background-color: #004d4d; /* Blu turchese scuro */
     color: #e0e0e0;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Aggiunto padding per creare margini */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    min-height: 100vh;
     font-size: 16px;
     overflow: hidden; /* Disabilita lo scorrimento */
 }
@@ -17,14 +17,59 @@ body {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
     border-radius: 16px; /* Angoli arrotondati per la bolla */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 20px; /* Padding uniforme */
+    padding: 15px 15px 10px 15px; /* Ridotto padding superiore e inferiore */
     max-width: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; /* Utilizza l'intera altezza disponibile */
-    box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
+    height: auto; /* Garantisce che l'altezza si adatti al contenuto */
+    max-height: calc(100vh - 40px); /* Assicura che la bolla contenitrice non sia mai più alta dello schermo */
+    overflow: hidden; /* Evita che il contenuto esca dai bordi */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px 10px 10px 10px; /* Ridotto padding su mobile */
+        width: 100%;
+        max-width: 100%; /* Assicura che la larghezza sia piena su mobile */
+        height: auto; /* Altezza automatica per adattarsi al contenuto */
+        max-height: calc(100vh - 20px); /* Limita l'altezza massima alla dimensione della finestra su mobile */
+    }
+
+    h1 {
+        font-size: 22px; /* Ridotto leggermente il titolo su mobile */
+        margin-bottom: 5px;
+    }
+
+    #symbols {
+        font-size: 20px; /* Ridotto la dimensione dei simboli su mobile */
+    }
+
+    #timer {
+        font-size: 50px; /* Ridotto leggermente il timer su mobile */
+        padding: 10px; /* Ridotto padding su mobile */
+    }
+
+    #controls {
+        margin-top: 5px; /* Ridotto il margine superiore */
+        margin-bottom: 5px; /* Ridotto il margine inferiore */
+    }
+
+    button {
+        padding: 8px 14px; /* Ridotto padding dei pulsanti su mobile */
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+        max-width: 120px; /* Ridotto leggermente la larghezza su mobile */
+    }
+
+    #studyMessage {
+        font-size: 16px;
+        margin-top: 8px; /* Ridotto il margine superiore su mobile */
+    }
 }
 
 h1 {
