@@ -27,6 +27,17 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
+/* Media query per iPhone */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Ridotto padding su dispositivi mobili */
+        max-width: 100%; /* Usa tutta la larghezza disponibile */
+        max-height: 95vh; /* Usa quasi tutta l'altezza disponibile */
+        margin: 0; /* Rimuovi i margini su dispositivi mobili */
+    }
+}
+
+
 h1 {
     font-size: 28px;
     margin-bottom: 5px;
