@@ -27,15 +27,30 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
-/* Media query per iPhone */
+/* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
     .container {
         padding: 10px; /* Ridotto padding su dispositivi mobili */
-        max-width: 100%; /* Usa tutta la larghezza disponibile */
-        max-height: 95vh; /* Usa quasi tutta l'altezza disponibile */
-        margin: 0; /* Rimuovi i margini su dispositivi mobili */
+        max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
+        max-height: 90vh; /* Usa la maggior parte dell'altezza disponibile */
+        margin: 0 auto; /* Centro la bolla e riduco margini */
+        overflow-y: auto; /* Permette lo scorrimento interno solo se necessario */
+    }
+
+    h1 {
+        font-size: 24px; /* Ridotto leggermente il titolo */
+    }
+
+    #timer {
+        font-size: 60px; /* Ridotto leggermente il timer per adattarsi meglio */
+    }
+
+    button {
+        padding: 10px 16px;
+        font-size: 14px;
     }
 }
+
 
 
 h1 {
