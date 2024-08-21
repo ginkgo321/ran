@@ -1,52 +1,75 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     background-color: #121212; /* Sfondo scuro */
     color: #e0e0e0; /* Testo chiaro */
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Modificato da height per evitare overflow */
 }
 
 .container {
-    margin: 50px auto;
-    max-width: 600px;
-    padding: 20px;
     background-color: #1e1e1e; /* Contenitore scuro */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Ombra in stile Material */
+    padding: 20px;
+    max-width: 90%; /* Ridotto da 400px per adattarsi meglio agli schermi piccoli */
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #90caf9; /* Colore primario Material per tema scuro */
 }
 
 #timer {
-    font-size: 48px;
+    font-size: 48px; /* Ridotto per schermi piccoli */
     margin: 20px 0;
     color: #e0e0e0; /* Testo del timer chiaro */
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
+    padding: 10px 15px; /* Ridotto per schermi piccoli */
+    font-size: 14px; /* Ridotto per schermi piccoli */
+    margin: 10px 5px;
     cursor: pointer;
     background-color: #333; /* Pulsanti scuri */
     color: #e0e0e0; /* Testo dei pulsanti chiaro */
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #555; /* Colore di sfondo dei pulsanti al passaggio del mouse */
-}
-
-button:active {
-    background-color: #777; /* Colore di sfondo dei pulsanti quando premuti */
-}
-
-#message, #quote, #cycleInfo {
-    margin-top: 20px;
-    font-size: 18px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #cycleInfo {
-    font-weight: bold; /* Grassetto per l'informazione del ciclo */
+    font-weight: bold;
+    color: #90caf9;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    #timer {
+        font-size: 36px; /* Adattamento per schermi molto piccoli */
+    }
+
+    h1 {
+        font-size: 20px; /* Adattamento per schermi molto piccoli */
+    }
+
+    button {
+        padding: 8px 12px; /* Ulteriore riduzione per schermi molto piccoli */
+        font-size: 12px; /* Ulteriore riduzione per schermi molto piccoli */
+    }
+
+    .container {
+        padding: 15px;
+    }
 }
