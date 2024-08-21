@@ -62,18 +62,18 @@ function startTimer() {
             if (isBreak) {
                 currentCycle++;
                 if (currentCycle < cycles) {
-                    document.getElementById('message').textContent = "Tempo di lavoro!";
+                    document.getElementById('message').textContent = "Tempo di studiare!";
                     document.getElementById('quote').textContent = "";
                     isBreak = false;
                     remainingTime = workTime;
                     updateCycleDisplay(); // Update cycle display
                     startTimer();
                 } else {
-                    document.getElementById('message').textContent = "Hai completato tutti i cicli Pomodoro!";
+                    document.getElementById('message').textContent = "Brava RAN! Hai completato tutti i cicli Pomodoro!";
                     document.getElementById('cycleInfo').textContent = ""; // Clear cycle info
                 }
             } else {
-                document.getElementById('message').textContent = "Tempo di pausa!";
+                document.getElementById('message').textContent = "Tempo di fare un po' pausa a sgranocchiare qualcosa!";
                 document.getElementById('quote').textContent = getRandomQuote();
                 isBreak = true;
                 remainingTime = breakTime;
