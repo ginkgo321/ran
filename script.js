@@ -2,7 +2,7 @@ let timerInterval;
 let isPaused = false;
 let isRunning = false; // Variabile per tracciare se il timer è in esecuzione
 let timeRemaining = 25 * 60; // Imposta 25 minuti come valore predefinito
-let workTime = 25 * 60; // Tempo di lavoro di default (in secondi)
+let workTime = 25 * 60; // Tempo di studio di default (in secondi)
 let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
 let currentCycle = 1; // Ciclo corrente, inizialmente impostato a 1
 const totalCycles = 4; // Numero totale di cicli
@@ -13,7 +13,7 @@ const cycleInfoElement = document.getElementById('cycleInfo');
 const toggleButton = document.getElementById('toggleButton');
 
 const quotes = [
-    // (Elenco delle citazioni come fornito prima)
+    // (Elenco delle citazioni)
 ];
 
 toggleButton.addEventListener('click', function() {
@@ -62,7 +62,7 @@ function startTimer(duration) {
             if (currentCycle < totalCycles) {
                 currentCycle++;
                 cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
-                // Avvia automaticamente il nuovo ciclo di lavoro
+                // Avvia automaticamente il nuovo ciclo di studio
                 timeRemaining = workTime;
                 startTimer(workTime);
             } else {
@@ -121,7 +121,7 @@ function showNotification(message) {
 }
 
 function playSound() {
-    const audio = new Audio('notification.wav'); // Aggiungi un file audio chiamato notification.wav nella cartella del progetto
+    const audio = new Audio('notification.wav');
     audio.play();
 }
 
@@ -129,16 +129,16 @@ function playSound() {
 window.addEventListener('beforeunload', () => {
     localStorage.setItem('timeRemaining', timeRemaining);
     localStorage.setItem('isPaused', isPaused);
-    localStorage.setItem('currentCycle', currentCycle); // Salva anche il ciclo corrente
+    localStorage.setItem('currentCycle', currentCycle);
 });
 
 window.addEventListener('load', () => {
     if (localStorage.getItem('timeRemaining')) {
         timeRemaining = parseInt(localStorage.getItem('timeRemaining'), 10) || workTime;
         isPaused = localStorage.getItem('isPaused') === 'true';
-        currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1; // Riprendi il ciclo corrente
+        currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1;
         cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
         timerElement.textContent = formatTime(timeRemaining);
-        toggleButton.textContent = isPaused ? 'Riprendi' : 'Inizia'; // Imposta il testo del pulsante correttamente al caricamento
+        toggleButton.textContent = isPaused ? 'Riprendi' : 'Inizia';
     }
 });

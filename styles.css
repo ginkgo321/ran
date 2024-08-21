@@ -13,27 +13,27 @@ body {
 }
 
 .container {
-    background-color: #1e1e1e; /* Contenitore leggermente più scuro */
+    background-color: #1e1e1e;
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
     padding: 40px;
-    max-width: 90%; /* Ridotto da 400px per adattarsi meglio agli schermi piccoli */
+    max-width: 90%;
     width: 100%;
 }
 
 h1 {
-    font-size: 36px; /* Aumentato per il titolo */
+    font-size: 36px;
     margin-bottom: 5px;
-    color: #00acc1; /* Colore d'accento turchese secondo il tema Material Design */
+    color: #00acc1;
 }
 
 #symbols {
-    font-size: 28px; /* Dimensione del font per i simboli */
-    margin-bottom: 20px; /* Distanza dal titolo */
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
 #cycleInfo {
-    font-size: 20px; /* Aumentato leggermente anche il font delle informazioni del ciclo */
+    font-size: 20px;
     font-weight: bold;
     color: #00acc1;
     margin-top: 20px;
@@ -41,63 +41,66 @@ h1 {
     border: 2px solid #00acc1;
     border-radius: 8px;
     display: inline-block;
-    margin-bottom: 20px; /* Spazio sotto il ciclo, sopra il timer */
+    margin-bottom: 10px; /* Ridotto lo spazio sotto il ciclo */
 }
 
 #timer {
-    font-size: 96px; /* Dimensione molto più grande per il timer */
-    font-weight: bold; /* Grassetto per enfatizzare il timer */
+    font-size: 96px;
+    font-weight: bold;
     margin: 20px 0;
-    color: #ffffff; /* Testo del timer molto chiaro */
+    color: #ffffff;
+    border: 3px solid #ffffff; /* Cornice bianca intorno al timer */
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
 }
 
 #controls {
     margin-top: 20px;
-    margin-bottom: 20px; /* Spazio sopra e sotto i pulsanti */
+    margin-bottom: 20px;
 }
 
 button {
-    padding: 15px 30px; /* Aumenta il padding per rendere i pulsanti più grandi */
-    font-size: 18px; /* Aumenta la dimensione del testo dei pulsanti */
+    padding: 15px 30px;
+    font-size: 18px;
     margin: 10px 10px;
     cursor: pointer;
-    background-color: #00acc1; /* Pulsanti con colore d'accento turchese */
-    color: #ffffff; /* Testo dei pulsanti chiaro */
+    background-color: #00acc1;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #008c9e; /* Colore di sfondo dei pulsanti al passaggio del mouse */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata al passaggio del mouse */
+    background-color: #008c9e;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 button:active {
-    background-color: #007a8a; /* Colore di sfondo dei pulsanti quando premuti */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata quando premuto */
+    background-color: #007a8a;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 #message, #quote {
     margin-top: 20px;
-    font-size: 18px; /* Manteniamo anche qui una buona dimensione per la leggibilità */
+    font-size: 18px;
     color: #b0b0b0;
-    min-height: 24px; /* Aggiunge spazio per il messaggio del timer in pausa */
+    min-height: 24px;
 }
 
 label {
-    font-size: 20px; /* Aumentato per rendere più leggibile */
+    font-size: 20px;
     color: #e0e0e0;
     margin-bottom: 8px;
     display: block;
-    /* Sposta la label su una nuova riga sopra l'input */
-    text-align: center; /* Centra il testo delle label */
+    text-align: center;
 }
 
 input {
     width: 100%;
-    max-width: 200px; /* Limita la larghezza massima delle caselle di input */
+    max-width: 200px;
     padding: 10px;
     border: 2px solid #00acc1;
     border-radius: 4px;
@@ -105,41 +108,40 @@ input {
     color: #ffffff;
     font-size: 18px;
     text-align: center;
-    margin-bottom: 20px; /* Spazio aggiuntivo tra gli input */
+    margin-bottom: 20px;
     transition: border-color 0.3s ease;
 }
 
 input:focus {
     border-color: #00acc1;
-    /* Cambia il colore del bordo quando l'input è attivo */
     outline: none;
 }
 
 #customization {
-    text-align: center; /* Centra la sezione di personalizzazione */
+    text-align: center;
 }
 
 #customization div {
-    margin-bottom: 15px; /* Spazio tra le righe di personalizzazione */
+    margin-bottom: 15px;
 }
 
 #saveSettings {
     display: inline-block;
-    margin-top: 10px; /* Ridotto per avvicinare il tasto Salva */
+    margin-top: 10px;
 }
 
 @media (max-width: 600px) {
     #timer {
-        font-size: 72px; /* Adattamento per schermi molto piccoli */
+        font-size: 72px;
     }
 
     h1 {
-        font-size: 28px; /* Adattamento per schermi molto piccoli */
+        font-size: 28px;
     }
 
     button {
-        padding: 12px 20px; /* Riduzione per schermi molto piccoli */
-        font-size: 16px; /* Riduzione per schermi molto piccoli */
+        padding: 12px 20px;
+        font-size: 16px;
     }
 
     .container {
@@ -148,18 +150,5 @@ input:focus {
 
     input {
         max-width: 100%;
-        /* Assicura che gli input siano a tutta larghezza su schermi molto piccoli */
     }
-}
-
-/* Aggiunta della cornice attorno al tempo del timer */
-#timer {
-    font-size: 96px; /* Dimensione molto più grande per il timer */
-    font-weight: bold; /* Grassetto per enfatizzare il timer */
-    margin: 20px 0;
-    color: #ffffff; /* Testo del timer molto chiaro */
-    border: 3px solid #00acc1; /* Aggiunta della cornice turchese attorno al timer */
-    border-radius: 8px; /* Arrotonda gli angoli della cornice */
-    padding: 20px; /* Spazio interno attorno al tempo */
-    display: inline-block; /* Mantiene la larghezza minima attorno al timer */
 }
