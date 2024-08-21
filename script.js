@@ -37,6 +37,7 @@ const quotes = [
 
 let currentCycle = 0;
 let remainingTime = workTime;
+let pausedTime = 0;
 
 document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
@@ -44,7 +45,7 @@ document.getElementById('stopButton').addEventListener('click', stopTimer);
 
 function startTimer() {
     if (timer) return; // Prevent multiple timers
-    
+
     timer = setInterval(() => {
         const minutes = Math.floor(remainingTime / 60);
         const seconds = remainingTime % 60;
@@ -80,6 +81,7 @@ function pauseTimer() {
     if (timer) {
         clearInterval(timer);
         timer = null;
+        pausedTime = remainingTime; // Store remaining time when paused
         document.getElementById('message').textContent = "Timer in pausa";
     }
 }
@@ -92,6 +94,7 @@ function stopTimer() {
         document.getElementById('quote').textContent = "";
         document.getElementById('time').textContent = "25:00";
         remainingTime = workTime;
+        pausedTime = 0;
     }
 }
 
