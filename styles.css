@@ -28,7 +28,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Stili specifici per dispositivi mobili */
+/* Media query per dispositivi mobili */
 @media (max-width: 600px) {
     .container {
         padding: 10px;
@@ -40,34 +40,33 @@ body {
 
     #customization {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column; /* Organizza gli input in colonna per ottimizzare l'uso dello spazio */
+        justify-content: center;
         align-items: center;
         width: 100%;
-        margin-bottom: 5px;
-        padding: 0; /* Elimina il padding per risparmiare spazio */
+        margin-bottom: 5px; /* Riduce lo spazio tra il blocco degli input e gli altri elementi */
     }
 
     #customization div {
         display: flex;
-        flex-direction: row; /* Dispone etichette e input in orizzontale */
+        flex-direction: row; /* Dispone le etichette e gli input su una riga */
         align-items: center;
         justify-content: space-between;
-        margin: 0 5px;
-        width: 33%; /* Ogni elemento prende un terzo dello spazio disponibile */
-        padding: 0;
+        width: 100%;
+        margin-bottom: 3px; /* Riduce lo spazio verticale tra le righe */
     }
 
     label {
-        font-size: 12px; /* Riduce la dimensione delle etichette */
-        margin-right: 5px;
+        font-size: 12px; /* Riduce la dimensione del testo delle etichette */
+        margin-right: 5px; /* Spazio tra l'etichetta e l'input */
     }
 
     input {
         font-size: 12px;
         max-width: 50px; /* Riduce la larghezza degli input */
-        padding: 3px; /* Riduce il padding interno */
-        text-align: center;
+        padding: 3px;
+        margin: 0;
+        text-align: center; /* Centro il testo all'interno dell'input */
     }
 
     #studyMessage {
@@ -94,6 +93,168 @@ body {
         font-size: 12px;
         margin-top: 5px;
     }
+}
+
+/* Stili generali */
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #004d4d;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #1A1A1A;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    max-width: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90vh;
+    box-sizing: border-box;
+}
+
+/* Stili desktop */
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #40E0D0;
+}
+
+#symbols {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#cycleInfo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 5px;
+    padding: 8px;
+    border: 2px solid #40E0D0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#timer {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #ffffff;
+    border: 3px solid #40E0D0;
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
+    background-color: #121212;
+}
+
+#controls {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 5px 5px;
+    cursor: pointer;
+    background-color: #40E0D0;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #36c1b5;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+button:active {
+    background-color: #2fa9a2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+#toggleButton i, #stopButton i {
+    font-size: 20px;
+}
+
+#message, #quote {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #b0b0b0;
+    min-height: 24px;
+}
+
+label {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    max-width: 150px;
+    padding: 8px;
+    border: 2px solid #40E0D0;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #40E0D0;
+    outline: none;
+}
+
+#customization {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#customization div {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#saveSettings, #defaultSettings {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Messaggio finale */
+#studyMessage {
+    font-size: 20px;
+    color: #40E0D0;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Stili desktop */
