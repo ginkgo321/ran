@@ -84,26 +84,44 @@ button:active {
     min-height: 24px; /* Aggiunge spazio per il messaggio del timer in pausa */
 }
 
-label, input {
+label {
     font-size: 20px; /* Aumentato per rendere più leggibile */
-    margin-bottom: 10px; /* Aggiunta di margine per separare le righe */
     color: #e0e0e0;
-    display: block; /* Dividi le label su righe separate */
-}
-
-#customization div {
-    text-align: center; /* Centra i div contenenti label e input */
-    margin-bottom: 10px; /* Aggiunge spazio tra i blocchi di input */
+    margin-bottom: 8px;
+    display: block;
+    /* Sposta la label su una nuova riga sopra l'input */
+    text-align: left; /* Allinea le label a sinistra */
 }
 
 input {
-    padding: 8px;
-    border: 1px solid #444;
+    width: 100%;
+    max-width: 200px; /* Limita la larghezza massima delle caselle di input */
+    padding: 10px;
+    border: 2px solid #00acc1;
     border-radius: 4px;
-    background-color: #333;
-    color: #e0e0e0;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
     margin-bottom: 20px; /* Spazio aggiuntivo tra gli input */
-    text-align: center; /* Testo centrato nei campi di input */
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #00acc1;
+    /* Cambia il colore del bordo quando l'input è attivo */
+    outline: none;
+}
+
+#customization {
+    text-align: center; /* Centra la sezione di personalizzazione */
+}
+
+#customization div {
+    display: inline-block; /* Imposta le etichette e gli input in blocchi separati */
+    margin-bottom: 15px; /* Spazio tra le righe di personalizzazione */
+    text-align: left;
+    /* Allinea il testo a sinistra per un aspetto più ordinato */
 }
 
 @media (max-width: 600px) {
@@ -122,5 +140,10 @@ input {
 
     .container {
         padding: 20px;
+    }
+
+    input {
+        max-width: 100%;
+        /* Assicura che gli input siano a tutta larghezza su schermi molto piccoli */
     }
 }
