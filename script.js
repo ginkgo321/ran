@@ -84,7 +84,8 @@ document.getElementById('stopButton').addEventListener('click', function() {
 document.getElementById('saveSettings').addEventListener('click', function() {
     workTime = document.getElementById('workTime').value * 60;
     breakTime = document.getElementById('breakTime').value * 60;
-    resetTimer();
+    timeRemaining = workTime; // Aggiorna il tempo rimanente
+    timerElement.textContent = formatTime(timeRemaining); // Visualizza il tempo aggiornato
 });
 
 function startTimer(duration) {
