@@ -40,7 +40,7 @@ body {
     #customization {
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Allinea il testo a sinistra */
+        align-items: stretch; /* Allinea gli elementi alla larghezza del contenitore */
     }
 
     #customization div {
@@ -49,24 +49,49 @@ body {
         justify-content: space-between;
         align-items: center;
         width: 100%; /* Assicura che gli elementi riempiano lo spazio disponibile */
-        margin-bottom: 5px; /* Riduce lo spazio tra gli elementi */
+        margin-bottom: 10px; /* Mantiene una buona spaziatura tra gli elementi */
+        padding: 5px 10px; /* Aggiunge padding per migliorare l'estetica */
+        border-radius: 8px; /* Aggiunge angoli arrotondati per un look più morbido */
+        background-color: #2a2a2a; /* Colore di sfondo per separare le sezioni */
     }
 
     label {
         font-size: 14px; /* Riduce la dimensione del testo per adattarlo meglio */
         margin-right: 10px; /* Spazio tra il testo e l'input */
+        color: #e0e0e0; /* Mantiene un buon contrasto con lo sfondo */
     }
 
     input {
         font-size: 14px;
         max-width: 60px; /* Riduce la larghezza degli input */
         padding: 5px;
+        border-radius: 4px; /* Angoli arrotondati sugli input */
+        border: 1px solid #40E0D0; /* Bordo turchese per uniformità con il design */
+        background-color: #1e1e1e; /* Sfondo scuro per gli input */
+        color: #ffffff; /* Testo bianco per leggibilità */
+        text-align: center; /* Centra il testo negli input */
     }
 
     #studyMessage {
         font-size: 14px; /* Riduce la dimensione del messaggio finale */
-        margin-top: 10px; /* Riduce il margine superiore */
+        margin-top: 20px; /* Aumenta lo spazio per separarlo dagli altri elementi */
+        color: #40E0D0; /* Colore coerente con il resto del design */
     }
+
+    h1, #symbols, #cycleInfo, #timer, #controls {
+        font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    #message, #quote {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+}
 
     h1, #symbols, #cycleInfo, #timer, #controls {
         font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
