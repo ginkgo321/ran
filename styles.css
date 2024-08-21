@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #121212; /* Sfondo scuro */
+    background-color: #0d0d0d; /* Sfondo leggermente più scuro */
     color: #e0e0e0; /* Testo chiaro */
     margin: 0;
     padding: 0;
@@ -13,21 +13,21 @@ body {
 }
 
 .container {
-    background-color: #1e1e1e;
+    background-color: #161616; /* Contenitore leggermente più scuro */
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7); /* Ombra più pronunciata */
     padding: 40px;
     max-width: 90%;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Forza la disposizione verticale degli elementi */
-    align-items: center; /* Centra gli elementi nella colonna */
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     font-size: 36px;
     margin-bottom: 5px;
-    color: #00acc1;
+    color: #00e5ff; /* Turchese più moderno */
 }
 
 #symbols {
@@ -38,12 +38,12 @@ h1 {
 #cycleInfo {
     font-size: 20px;
     font-weight: bold;
-    color: #00acc1;
+    color: #00e5ff;
     margin-top: 20px;
     padding: 10px;
-    border: 2px solid #00acc1;
+    border: 2px solid #00e5ff;
     border-radius: 8px;
-    margin-bottom: 10px; /* Spazio sotto il ciclo */
+    margin-bottom: 10px;
 }
 
 #timer {
@@ -51,10 +51,11 @@ h1 {
     font-weight: bold;
     margin: 20px 0;
     color: #ffffff;
-    border: 3px solid #ffffff; /* Cornice bianca intorno al timer */
+    border: 3px solid #ffffff;
     border-radius: 8px;
     padding: 20px;
     display: inline-block;
+    background-color: #121212; /* Sfondo scuro dietro al timer */
 }
 
 #controls {
@@ -67,22 +68,22 @@ button {
     font-size: 18px;
     margin: 10px 10px;
     cursor: pointer;
-    background-color: #00acc1;
-    color: #ffffff;
+    background-color: #00e5ff; /* Turchese più moderno */
+    color: #000000; /* Testo scuro sui pulsanti */
     border: none;
     border-radius: 4px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #008c9e;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    background-color: #00b8cc; /* Colore leggermente più scuro al passaggio del mouse */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 button:active {
-    background-color: #007a8a;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+    background-color: #0099aa; /* Colore più scuro quando premuto */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 #message, #quote {
@@ -104,7 +105,7 @@ input {
     width: 100%;
     max-width: 200px;
     padding: 10px;
-    border: 2px solid #00acc1;
+    border: 2px solid #00e5ff;
     border-radius: 4px;
     background-color: #1e1e1e;
     color: #ffffff;
@@ -115,7 +116,7 @@ input {
 }
 
 input:focus {
-    border-color: #00acc1;
+    border-color: #00e5ff;
     outline: none;
 }
 
