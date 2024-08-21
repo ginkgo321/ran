@@ -36,22 +36,22 @@ const quotes = [
 ];
 
 let currentCycle = 0;
+let remainingTime = workTime;
 
 document.getElementById('startButton').addEventListener('click', startTimer);
+document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 document.getElementById('stopButton').addEventListener('click', stopTimer);
 
 function startTimer() {
     if (timer) return; // Prevent multiple timers
-    let time = workTime;
-    if (isBreak) time = breakTime;
     
     timer = setInterval(() => {
-        const minutes = Math.floor(time / 60);
-        const seconds = time % 60;
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
         document.getElementById('time').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        time--;
+        remainingTime--;
         
-        if (time < 0) {
+        if (remainingTime < 0) {
             clearInterval(timer);
             timer = null;
             if (isBreak) {
@@ -60,6 +60,7 @@ function startTimer() {
                     document.getElementById('message').textContent = "Tempo di lavoro!";
                     document.getElementById('quote').textContent = "";
                     isBreak = false;
+                    remainingTime = workTime;
                     startTimer();
                 } else {
                     document.getElementById('message').textContent = "Hai completato tutti i cicli Pomodoro!";
@@ -68,10 +69,19 @@ function startTimer() {
                 document.getElementById('message').textContent = "Tempo di pausa!";
                 document.getElementById('quote').textContent = getRandomQuote();
                 isBreak = true;
+                remainingTime = breakTime;
                 startTimer();
             }
         }
     }, 1000);
+}
+
+function pauseTimer() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+        document.getElementById('message').textContent = "Timer in pausa";
+    }
 }
 
 function stopTimer() {
@@ -81,6 +91,7 @@ function stopTimer() {
         document.getElementById('message').textContent = "";
         document.getElementById('quote').textContent = "";
         document.getElementById('time').textContent = "25:00";
+        remainingTime = workTime;
     }
 }
 
@@ -88,4 +99,3 @@ function getRandomQuote() {
     const quote = quotes[Math.floor(Math.random() * quotes.length)];
     return `"${quote.text}" - ${quote.author}`;
 }
-
