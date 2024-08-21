@@ -27,11 +27,6 @@ h1 {
     color: #90caf9; /* Colore primario Material per tema scuro */
 }
 
-#symbols {
-    font-size: 28px; /* Dimensione del font per i simboli */
-    margin-top: 10px; /* Distanza dal titolo */
-}
-
 #timer {
     font-size: 56px; /* Manteniamo la dimensione grande del timer */
     margin: 20px 0;
