@@ -17,13 +17,12 @@ body {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
     border-radius: 16px; /* Angoli arrotondati per la bolla */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 20px; /* Margine interno per distanziare il contenuto dai bordi */
-    max-width: calc(100% - 40px); /* Distanza uniforme dai bordi dello schermo */
+    padding: 20px 20px 10px 20px; /* Ridotto padding superiore e inferiore */
+    max-width: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #40E0D0; /* Contorno visibile in turchese */
 }
 
 h1 {
@@ -161,7 +160,10 @@ input:focus {
     .container {
         padding: 10px 10px 10px 10px; /* Ridotto padding su mobile */
         width: 100%;
-        max-width: calc(100% - 20px); /* Assicura margine uniforme su mobile */
+        max-width: 100%; /* Assicura che la larghezza sia piena su mobile */
+        height: auto; /* Altezza automatica per adattarsi al contenuto */
+        max-height: 100vh; /* Limita l'altezza massima alla dimensione della finestra */
+        overflow: hidden; /* Evita che il contenuto esca dai bordi */
     }
 
     h1 {
