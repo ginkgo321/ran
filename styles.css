@@ -42,35 +42,34 @@ body {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        margin-bottom: 10px; /* Spazio tra i pulsanti e il contenitore */
+        margin-bottom: 5px; /* Ridotto margine inferiore */
     }
 
     #customization div {
         display: flex;
         flex-direction: row; /* Dispone il testo e l'input orizzontalmente */
-        justify-content: space-between; /* Distribuisce uniformemente gli elementi */
+        justify-content: space-between;
         align-items: center;
-        width: 100%; /* Assicura che gli elementi riempiano lo spazio disponibile */
-        margin-bottom: 10px; /* Spazio tra gli elementi per un aspetto più ordinato */
+        width: 100%;
+        margin-bottom: 5px; /* Ridotto margine inferiore */
     }
 
     label {
-        font-size: 14px; /* Riduce la dimensione del testo per adattarlo meglio */
-        margin-right: 10px; /* Spazio tra l'etichetta e l'input */
-        text-align: left; /* Allinea il testo a sinistra */
+        font-size: 12px; /* Ridotta la dimensione del testo */
+        margin-right: 5px; /* Ridotto lo spazio tra etichetta e input */
     }
 
     input {
-        font-size: 14px;
-        max-width: 60px; /* Riduce la larghezza degli input */
-        padding: 5px;
-        text-align: center; /* Centro il testo all'interno dell'input */
+        font-size: 12px;
+        max-width: 40px; /* Ridotta ulteriormente la larghezza degli input */
+        padding: 3px;
+        text-align: center;
     }
 
     #studyMessage {
-        font-size: 14px; /* Riduce la dimensione del messaggio finale */
-        margin-top: 10px; /* Riduce il margine superiore */
-        text-align: center; /* Centro il messaggio finale */
+        font-size: 14px; /* Ridotta la dimensione del messaggio finale */
+        margin-top: 10px; /* Ridotto margine superiore */
+        text-align: center;
     }
 
     h1 {
@@ -142,4 +141,84 @@ button {
     border: none;
     border-radius: 4px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #36c1b5; /* Colore leggermente più scuro per il hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+button:active {
+    background-color: #2fa9a2; /* Colore più scuro per il click */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+#toggleButton i, #stopButton i {
+    font-size: 20px;
+}
+
+#message, #quote {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #b0b0b0;
+    min-height: 24px;
+}
+
+label {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    max-width: 150px;
+    padding: 8px;
+    border: 2px solid #40E0D0; /* Turchese minerale */
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #40E0D0; /* Turchese minerale per il focus */
+    outline: none;
+}
+
+#customization {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#customization div {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#saveSettings, #defaultSettings {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Messaggio finale */
+#studyMessage {
+    font-size: 20px;
+    color: #40E0D0; /* Turchese minerale */
+    margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
+    text-align: center; /* Centro il testo */
+}
