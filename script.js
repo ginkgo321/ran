@@ -107,7 +107,6 @@ function pauseTimer() {
     clearInterval(timerInterval);
     isPaused = true;
     isRunning = false;
-    messageElement.textContent = 'Timer in pausa';
     toggleButton.textContent = 'Riprendi';
 }
 
