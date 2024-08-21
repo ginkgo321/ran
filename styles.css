@@ -27,49 +27,58 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
-/* Aggiornamenti per migliorare la visualizzazione su dispositivi mobili */
+/* Media query per dispositivi mobili */
 @media (max-width: 600px) {
     .container {
         padding: 10px;
         max-width: 95%;
-        max-height: 95vh; /* Modificato per garantire che tutto il contenuto sia visibile */
+        max-height: 95vh; /* Mantiene il contenuto visibile */
         margin: 0 auto;
         overflow: hidden;
     }
 
-    #studyMessage {
-        font-size: 14px;
-        margin-top: 10px;
-        padding-bottom: 10px; /* Aggiunto padding inferiore per evitare tagli */
+    #customization {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Allinea il testo a sinistra */
     }
 
-    h1 {
-        font-size: 18px; /* Ridotto ulteriormente il titolo */
-        margin-bottom: 5px;
+    #customization div {
+        display: flex;
+        flex-direction: row; /* Dispone il testo e l'input orizzontalmente */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Assicura che gli elementi riempiano lo spazio disponibile */
+        margin-bottom: 5px; /* Riduce lo spazio tra gli elementi */
     }
 
-    #symbols, #cycleInfo, #timer {
-        font-size: 14px; /* Ridotta la dimensione */
-    }
-
-    #controls {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    button {
-        padding: 6px 10px; /* Ridotto padding dei pulsanti */
-        font-size: 12px; /* Ridotta la dimensione del testo */
+    label {
+        font-size: 14px; /* Riduce la dimensione del testo per adattarlo meglio */
+        margin-right: 10px; /* Spazio tra il testo e l'input */
     }
 
     input {
-        font-size: 12px; /* Ridotta la dimensione del testo negli input */
-        max-width: 100px; /* Ridotta larghezza degli input */
-        padding: 5px; /* Ridotto padding interno */
+        font-size: 14px;
+        max-width: 60px; /* Riduce la larghezza degli input */
+        padding: 5px;
+    }
+
+    #studyMessage {
+        font-size: 14px; /* Riduce la dimensione del messaggio finale */
+        margin-top: 10px; /* Riduce il margine superiore */
+    }
+
+    h1, #symbols, #cycleInfo, #timer, #controls {
+        font-size: 16px; /* Adatta gli altri elementi alla dimensione dello schermo */
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
     }
 
     #message, #quote {
-        font-size: 12px; /* Ridotta la dimensione del testo */
+        font-size: 12px;
         margin-top: 5px;
     }
 }
