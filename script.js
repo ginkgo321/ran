@@ -43,6 +43,10 @@ document.getElementById('startButton').addEventListener('click', startTimer);
 document.getElementById('pauseButton').addEventListener('click', pauseTimer);
 document.getElementById('stopButton').addEventListener('click', stopTimer);
 
+function updateCycleDisplay() {
+    document.getElementById('cycleInfo').textContent = `Ciclo ${currentCycle + 1}/${cycles}`;
+}
+
 function startTimer() {
     if (timer) return; // Prevent multiple timers
 
@@ -62,15 +66,18 @@ function startTimer() {
                     document.getElementById('quote').textContent = "";
                     isBreak = false;
                     remainingTime = workTime;
+                    updateCycleDisplay(); // Update cycle display
                     startTimer();
                 } else {
                     document.getElementById('message').textContent = "Hai completato tutti i cicli Pomodoro!";
+                    document.getElementById('cycleInfo').textContent = ""; // Clear cycle info
                 }
             } else {
                 document.getElementById('message').textContent = "Tempo di pausa!";
                 document.getElementById('quote').textContent = getRandomQuote();
                 isBreak = true;
                 remainingTime = breakTime;
+                updateCycleDisplay(); // Update cycle display
                 startTimer();
             }
         }
@@ -95,6 +102,7 @@ function stopTimer() {
         document.getElementById('time').textContent = "25:00";
         remainingTime = workTime;
         pausedTime = 0;
+        document.getElementById('cycleInfo').textContent = ""; // Clear cycle info
     }
 }
 
