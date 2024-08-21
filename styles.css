@@ -32,7 +32,7 @@ body {
     body {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
         margin: 0;
@@ -41,17 +41,64 @@ body {
     }
 
     .container {
-        padding: 10px; /* Ridotto padding su dispositivi mobili */
+        padding: 8px; /* Ridotto padding su dispositivi mobili */
         max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
         width: 100%;
         margin: 0 auto; /* Centro la bolla e riduco margini */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between; /* Distribuisce meglio lo spazio verticale */
         align-items: center;
         height: 100%; /* La container occupa l'intera altezza disponibile */
         box-sizing: border-box;
+        overflow: hidden;
     }
+
+    h1 {
+        font-size: 16px; /* Ridotto il titolo */
+        margin-bottom: 4px;
+    }
+
+    #symbols {
+        font-size: 14px; /* Ridotto la dimensione dei simboli */
+        margin-bottom: 4px;
+    }
+
+    #cycleInfo {
+        font-size: 12px; /* Ridotta la dimensione del ciclo */
+        margin-bottom: 4px;
+    }
+
+    #timer {
+        font-size: 36px; /* Ridotto ulteriormente il timer */
+        padding: 4px; /* Ridotto padding */
+        margin: 4px 0; /* Ridotto margine superiore e inferiore */
+    }
+
+    #controls {
+        margin-top: 4px; /* Ridotto margine superiore */
+        margin-bottom: 4px; /* Ridotto margine inferiore */
+    }
+
+    button {
+        padding: 4px 8px; /* Ridotto padding dei pulsanti */
+        font-size: 12px; /* Ridotta la dimensione del testo */
+    }
+
+    input {
+        font-size: 12px; /* Ridotta la dimensione del testo negli input */
+        max-width: 80px; /* Ridotta larghezza degli input */
+        padding: 4px; /* Ridotto padding interno */
+    }
+
+    #studyMessage {
+        font-size: 12px; /* Ridotto la dimensione del messaggio finale */
+        margin-top: 4px; /* Margine ridotto */
+        text-align: center;
+        padding: 4px 0;
+    }
+}
+
 
     h1 {
         font-size: 18px; /* Ridotto il titolo */
