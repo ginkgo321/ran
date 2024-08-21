@@ -8,35 +8,55 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Modificato da height per evitare overflow */
-    font-size: 18px; /* Aumentata la dimensione generale del font */
+    min-height: 100vh; /* Altezza minima */
+    font-size: 18px; /* Dimensione generale del font */
 }
 
 .container {
     background-color: #1e1e1e; /* Contenitore scuro */
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Ombra in stile Material */
-    padding: 20px;
+    padding: 30px;
     max-width: 90%; /* Ridotto da 400px per adattarsi meglio agli schermi piccoli */
     width: 100%;
 }
 
 h1 {
     font-size: 28px; /* Aumentato per il titolo */
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     color: #90caf9; /* Colore primario Material per tema scuro */
 }
 
+#symbols {
+    font-size: 28px; /* Dimensione del font per i simboli */
+    margin-bottom: 20px; /* Distanza dal titolo */
+}
+
 #timer {
-    font-size: 56px; /* Manteniamo la dimensione grande del timer */
+    font-size: 64px; /* Dimensione maggiore del timer */
     margin: 20px 0;
     color: #e0e0e0; /* Testo del timer chiaro */
+}
+
+#cycleInfo {
+    font-size: 20px; /* Aumentato leggermente anche il font delle informazioni del ciclo */
+    font-weight: bold;
+    color: #90caf9;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#controls, #customization {
+    margin-top: 20px;
 }
 
 button {
     padding: 15px 30px; /* Aumenta il padding per rendere i pulsanti più grandi */
     font-size: 18px; /* Aumenta la dimensione del testo dei pulsanti */
-    margin: 10px 5px;
+    margin: 10px 10px;
     cursor: pointer;
     background-color: #333; /* Pulsanti scuri */
     color: #e0e0e0; /* Testo dei pulsanti chiaro */
@@ -56,21 +76,24 @@ button:active {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata quando premuto */
 }
 
-#cycleInfo {
-    font-size: 20px; /* Aumentato leggermente anche il font delle informazioni del ciclo */
-    font-weight: bold;
-    color: #90caf9;
-    margin-top: 20px;
-    padding: 10px;
-    border: 2px solid #90caf9;
-    border-radius: 8px;
-    display: inline-block;
-}
-
 #message, #quote {
     margin-top: 20px;
     font-size: 18px; /* Manteniamo anche qui una buona dimensione per la leggibilità */
     color: #b0b0b0;
+}
+
+label, input {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #b0b0b0;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 @media (max-width: 600px) {
@@ -88,6 +111,6 @@ button:active {
     }
 
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 }

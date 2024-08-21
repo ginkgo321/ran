@@ -1,12 +1,13 @@
-
 let timerInterval;
 let isPaused = false;
-let timeRemaining = 1500; // 25 minuti in secondi
+let timeRemaining;
+let workTime = 25 * 60; // Tempo di lavoro di default (in secondi)
+let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
 const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
+const cycleInfoElement = document.getElementById('cycleInfo');
 
-// Array di citazioni
 const quotes = [
     "Success is the sum of small efforts, repeated day in and day out. – Robert Collier",
     "The beautiful thing about learning is that no one can take it away from you. – B.B. King",
@@ -39,6 +40,7 @@ const quotes = [
     "Non guardare l'orologio; fai come fa lui: continua ad andare avanti. – Sam Levenson",
     "L'educazione è ciò che rimane dopo che si è dimenticato ciò che si è imparato a scuola. – Albert Einstein",
     "L'unico limite alla nostra realizzazione di domani sono i nostri dubbi di oggi. – Franklin D. Roosevelt",
+    "Se vuoi raggiungere la grandezza, smetti di chiedere il permesso. – Anonimo",
     "L'unico modo per fare un ottimo lavoro è amare quello che fai. – Steve Jobs",
     "Inizia dove ti trovi. Usa ciò che hai. Fai ciò che puoi. – Arthur Ashe",
     "Non aspettare che il ferro sia caldo per battere, ma rendilo caldo battendo. – William Butler Yeats",
@@ -63,7 +65,7 @@ document.getElementById('startButton').addEventListener('click', function() {
         isPaused = false;
         messageElement.textContent = '';
     } else {
-        startTimer(1500);
+        startTimer(workTime);
     }
 });
 
@@ -76,14 +78,13 @@ document.getElementById('pauseButton').addEventListener('click', function() {
 });
 
 document.getElementById('stopButton').addEventListener('click', function() {
-    if (timerInterval) {
-        clearInterval(timerInterval);
-    }
-    isPaused = false;
-    timeRemaining = 1500;
-    timerElement.textContent = formatTime(timeRemaining);
-    messageElement.textContent = '';
-    quoteElement.textContent = ''; // Rimuove eventuali citazioni precedenti
+    resetTimer();
+});
+
+document.getElementById('saveSettings').addEventListener('click', function() {
+    workTime = document.getElementById('workTime').value * 60;
+    breakTime = document.getElementById('breakTime').value * 60;
+    resetTimer();
 });
 
 function startTimer(duration) {
@@ -96,7 +97,9 @@ function startTimer(duration) {
             clearInterval(timerInterval);
             timerElement.textContent = "00:00";
             messageElement.textContent = 'Tempo scaduto!';
-            showRandomQuote(); // Mostra una citazione alla fine del ciclo
+            showRandomQuote();
+            showNotification("Tempo scaduto!");
+            playSound(); // Riproduce il suono di festeggiamento
         } else {
             timerElement.textContent = formatTime(timeRemaining);
         }
@@ -109,7 +112,47 @@ function formatTime(seconds) {
     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
+function resetTimer() {
+    clearInterval(timerInterval);
+    isPaused = false;
+    timeRemaining = workTime;
+    timerElement.textContent = formatTime(timeRemaining);
+    messageElement.textContent = '';
+    quoteElement.textContent = ''; // Rimuove eventuali citazioni precedenti
+}
+
 function showRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteElement.textContent = quotes[randomIndex];
 }
+
+function showNotification(message) {
+    if (Notification.permission === 'granted') {
+        new Notification(message);
+    } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification(message);
+            }
+        });
+    }
+}
+
+function playSound() {
+    const audio = new Audio('notification.wav'); // Aggiungi un file audio chiamato notification.wav nella cartella del progetto
+    audio.play();
+}
+
+// Salvataggio dello stato nel localStorage
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('timeRemaining', timeRemaining);
+    localStorage.setItem('isPaused', isPaused);
+});
+
+window.addEventListener('load', () => {
+    if (localStorage.getItem('timeRemaining')) {
+        timeRemaining = localStorage.getItem('timeRemaining');
+        isPaused = localStorage.getItem('isPaused') === 'true';
+        timerElement.textContent = formatTime(timeRemaining);
+    }
+});

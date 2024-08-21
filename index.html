@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -11,14 +9,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Il pomodoro timer di RAN! 🐨 ❤️ 🦥</h1>
-        <div id="cycleInfo">Ciclo 1/4</div>
+        <h1>Il Pomodoro Timer di RAN!</h1>
+        <div id="symbols">🐨 ❤️ 🦥</div>
         <div id="timer">
             <span id="time">25:00</span>
         </div>
-        <button id="startButton">Inizia</button>
-        <button id="pauseButton">Pausa</button>
-        <button id="stopButton">Ferma</button>
+        <div id="cycleInfo">Ciclo 1/4</div>
+        <div id="customization">
+            <label for="workTime">Tempo di lavoro (minuti):</label>
+            <input type="number" id="workTime" value="25" min="1" max="60">
+            <label for="breakTime">Tempo di pausa (minuti):</label>
+            <input type="number" id="breakTime" value="5" min="1" max="30">
+            <button id="saveSettings">Salva Impostazioni</button>
+        </div>
+        <div id="controls">
+            <button id="startButton">Inizia</button>
+            <button id="pauseButton">Pausa</button>
+            <button id="stopButton">Ferma</button>
+        </div>
         <p id="message"></p>
         <p id="quote"></p>
     </div>
