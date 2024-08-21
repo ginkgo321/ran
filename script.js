@@ -1,11 +1,11 @@
 let timerInterval;
 let isPaused = false;
-let isRunning = false; // Variabile per tracciare se il timer è in esecuzione
-let timeRemaining = 25 * 60; // Imposta 25 minuti come valore predefinito
-let workTime = 25 * 60; // Tempo di studio di default (in secondi)
-let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
-let currentCycle = 1; // Ciclo corrente, inizialmente impostato a 1
-const totalCycles = 4; // Numero totale di cicli
+let isRunning = false;
+let timeRemaining = 25 * 60;
+let workTime = 25 * 60;
+let breakTime = 5 * 60;
+let currentCycle = 1;
+const totalCycles = 4;
 const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
@@ -13,20 +13,49 @@ const cycleInfoElement = document.getElementById('cycleInfo');
 const toggleButton = document.getElementById('toggleButton');
 
 const quotes = [
-    // (Elenco delle citazioni)
+    "Education is the most powerful weapon which you can use to change the world. – Nelson Mandela",
+    "The more that you read, the more things you will know, the more that you learn, the more places you'll go. – Dr. Seuss",
+    "An investment in knowledge pays the best interest. – Benjamin Franklin",
+    "Live as if you were to die tomorrow. Learn as if you were to live forever. – Mahatma Gandhi",
+    "The beautiful thing about learning is that no one can take it away from you. – B.B. King",
+    "Education is not the filling of a pail, but the lighting of a fire. – W.B. Yeats",
+    "The roots of education are bitter, but the fruit is sweet. – Aristotle",
+    "The only person who is educated is the one who has learned how to learn and change. – Carl Rogers",
+    "Education is the key to unlock the golden door of freedom. – George Washington Carver",
+    "Learning never exhausts the mind. – Leonardo da Vinci",
+    "The best way to predict your future is to create it. – Peter Drucker",
+    "The only place where success comes before work is in the dictionary. – Vidal Sassoon",
+    "Success is the sum of small efforts, repeated day in and day out. – Robert Collier",
+    "Formal education will make you a living; self-education will make you a fortune. – Jim Rohn",
+    "The function of education is to teach one to think intensively and to think critically. Intelligence plus character – that is the goal of true education. – Martin Luther King Jr.",
+    "Study without desire spoils the memory, and it retains nothing that it takes in. – Leonardo da Vinci",
+    "Don't let what you cannot do interfere with what you can do. – John Wooden",
+    "Develop a passion for learning. If you do, you will never cease to grow. – Anthony J. D'Angelo",
+    "The expert in anything was once a beginner. – Helen Hayes",
+    "The more I live, the more I learn. The more I learn, the more I realize, the less I know. – Michel Legrand",
+    "Education is what remains after one has forgotten what one has learned in school. – Albert Einstein",
+    "If you think education is expensive, try ignorance. – Andy McIntyre",
+    "Change is the end result of all true learning. – Leo Buscaglia",
+    "A good education is a foundation for a better future. – Elizabeth Warren",
+    "It is not that I'm so smart. But I stay with the questions much longer. – Albert Einstein",
+    "Education is the passport to the future, for tomorrow belongs to those who prepare for it today. – Malcolm X",
+    "The purpose of education is to replace an empty mind with an open one. – Malcolm Forbes",
+    "Learning is a treasure that will follow its owner everywhere. – Chinese Proverb",
+    "Education is not preparation for life; education is life itself. – John Dewey",
+    "Knowledge is power. – Sir Francis Bacon"
 ];
 
 toggleButton.addEventListener('click', function() {
     if (!isRunning && !isPaused) {
         startTimer(timeRemaining);
         isRunning = true;
-        toggleButton.textContent = 'Pausa'; // Cambia il testo in "Pausa" quando il timer parte
+        toggleButton.textContent = 'Pausa';
         messageElement.textContent = '';
     } else if (isPaused) {
         startTimer(timeRemaining);
         isPaused = false;
         isRunning = true;
-        toggleButton.textContent = 'Pausa'; // Cambia il testo in "Pausa" quando il timer riparte
+        toggleButton.textContent = 'Pausa';
         messageElement.textContent = '';
     } else {
         pauseTimer();
@@ -40,8 +69,8 @@ document.getElementById('stopButton').addEventListener('click', function() {
 document.getElementById('saveSettings').addEventListener('click', function() {
     workTime = document.getElementById('workTime').value * 60;
     breakTime = document.getElementById('breakTime').value * 60;
-    timeRemaining = workTime; // Aggiorna il tempo rimanente
-    timerElement.textContent = formatTime(timeRemaining); // Visualizza il tempo aggiornato
+    timeRemaining = workTime;
+    timerElement.textContent = formatTime(timeRemaining);
 });
 
 function startTimer(duration) {
@@ -56,13 +85,11 @@ function startTimer(duration) {
             messageElement.textContent = 'Tempo scaduto!';
             showRandomQuote();
             showNotification("Tempo scaduto!");
-            playSound(); // Riproduce il suono di festeggiamento
+            playSound();
 
-            // Aggiorna il ciclo corrente
             if (currentCycle < totalCycles) {
                 currentCycle++;
                 cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
-                // Avvia automaticamente il nuovo ciclo di studio
                 timeRemaining = workTime;
                 startTimer(workTime);
             } else {
@@ -81,7 +108,7 @@ function pauseTimer() {
     isPaused = true;
     isRunning = false;
     messageElement.textContent = 'Timer in pausa';
-    toggleButton.textContent = 'Riprendi'; // Cambia il testo in "Riprendi" quando il timer è in pausa
+    toggleButton.textContent = 'Riprendi';
 }
 
 function resetTimer() {
@@ -89,12 +116,12 @@ function resetTimer() {
     isPaused = false;
     isRunning = false;
     timeRemaining = workTime;
-    currentCycle = 1; // Resetta il ciclo corrente al primo ciclo
+    currentCycle = 1;
     cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
     timerElement.textContent = formatTime(timeRemaining);
     messageElement.textContent = '';
-    toggleButton.textContent = 'Inizia'; // Cambia il testo in "Inizia" quando il timer è fermo
-    quoteElement.textContent = ''; // Rimuove eventuali citazioni precedenti
+    toggleButton.textContent = 'Inizia';
+    quoteElement.textContent = '';
 }
 
 function formatTime(seconds) {
@@ -125,7 +152,6 @@ function playSound() {
     audio.play();
 }
 
-// Salvataggio dello stato nel localStorage
 window.addEventListener('beforeunload', () => {
     localStorage.setItem('timeRemaining', timeRemaining);
     localStorage.setItem('isPaused', isPaused);
