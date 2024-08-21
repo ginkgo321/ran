@@ -6,6 +6,7 @@ let workTime = 25 * 60;
 let breakTime = 5 * 60;
 let currentCycle = 1;
 let totalCycles = 4; // Variabile dinamica per il numero di cicli
+let wakeLock = null; // Variabile per il Wake Lock
 const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
@@ -47,6 +48,29 @@ const quotes = [
     "Knowledge is power. – Sir Francis Bacon"
 ];
 
+// Funzione per richiedere il Wake Lock
+async function requestWakeLock() {
+    if ('wakeLock' in navigator) {
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('Wake Lock attivato');
+            wakeLock.addEventListener('release', () => {
+                console.log('Wake Lock rilasciato');
+            });
+        } catch (err) {
+            console.error(`Errore durante l'attivazione del Wake Lock: ${err.name}, ${err.message}`);
+        }
+    }
+}
+
+// Funzione per rilasciare il Wake Lock
+function releaseWakeLock() {
+    if (wakeLock !== null) {
+        wakeLock.release();
+        wakeLock = null;
+    }
+}
+
 // Gestione del pulsante di avvio/pausa
 toggleButton.addEventListener('click', function() {
     if (!isRunning && !isPaused) {
@@ -54,31 +78,24 @@ toggleButton.addEventListener('click', function() {
         isRunning = true;
         toggleIcon.className = 'fas fa-pause'; // Cambia l'icona in pausa quando il timer parte
         messageElement.textContent = '';
+        requestWakeLock(); // Richiede il Wake Lock quando il timer inizia
     } else if (isPaused) {
         startTimer(timeRemaining);
         isPaused = false;
         isRunning = true;
         toggleIcon.className = 'fas fa-pause'; // Cambia l'icona in pausa quando il timer riparte
         messageElement.textContent = '';
+        requestWakeLock(); // Richiede il Wake Lock quando il timer riprende
     } else {
         pauseTimer();
+        releaseWakeLock(); // Rilascia il Wake Lock quando il timer è in pausa
     }
 });
 
 // Gestione del pulsante di stop
 document.getElementById('stopButton').addEventListener('click', function() {
     resetTimer();
-});
-
-// Gestione del pulsante di salvataggio delle impostazioni
-document.getElementById('saveSettings').addEventListener('click', function() {
-    saveSettings();
-});
-
-// Gestione del pulsante di impostazioni predefinite
-document.getElementById('defaultSettings').addEventListener('click', function() {
-    setDefaultSettings();
-    saveSettings(); // Salva automaticamente dopo aver impostato i valori predefiniti
+    releaseWakeLock(); // Rilascia il Wake Lock quando il timer viene resettato
 });
 
 // Funzione per avviare il timer
@@ -105,6 +122,7 @@ function startTimer(duration) {
                 messageElement.textContent = 'Hai completato tutti i cicli!';
                 toggleIcon.className = 'fas fa-play'; // Torna all'icona play
                 isRunning = false;
+                releaseWakeLock(); // Rilascia il Wake Lock al termine del timer
             }
         } else {
             timerElement.textContent = formatTime(timeRemaining);
@@ -164,23 +182,6 @@ function showNotification(message) {
 function playSound() {
     const audio = new Audio('notification.wav');
     audio.play();
-}
-
-// Funzione per salvare le impostazioni
-function saveSettings() {
-    workTime = document.getElementById('workTime').value * 60;
-    breakTime = document.getElementById('breakTime').value * 60;
-    totalCycles = document.getElementById('cycleCount').value;
-    timeRemaining = workTime;
-    timerElement.textContent = formatTime(timeRemaining);
-    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Aggiorna l'indicazione del ciclo
-}
-
-// Funzione per impostare i valori predefiniti
-function setDefaultSettings() {
-    document.getElementById('workTime').value = 25;
-    document.getElementById('breakTime').value = 5;
-    document.getElementById('cycleCount').value = 4;
 }
 
 // Imposta il timer e l'icona all'apertura della pagina
