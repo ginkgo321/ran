@@ -1,5 +1,6 @@
 let timerInterval;
 let isPaused = false;
+let isRunning = false; // Variabile per tracciare se il timer è in esecuzione
 let timeRemaining = 25 * 60; // Imposta 25 minuti come valore predefinito
 let workTime = 25 * 60; // Tempo di lavoro di default (in secondi)
 let breakTime = 5 * 60; // Tempo di pausa di default (in secondi)
@@ -9,6 +10,7 @@ const timerElement = document.getElementById('time');
 const messageElement = document.getElementById('message');
 const quoteElement = document.getElementById('quote');
 const cycleInfoElement = document.getElementById('cycleInfo');
+const toggleButton = document.getElementById('toggleButton');
 
 const quotes = [
     "Success is the sum of small efforts, repeated day in and day out. – Robert Collier",
@@ -61,21 +63,20 @@ const quotes = [
     "Se non sei disposto a imparare, nessuno può aiutarti. Se sei determinato a imparare, nessuno può fermarti. – Zig Ziglar"
 ];
 
-document.getElementById('startButton').addEventListener('click', function() {
-    if (isPaused) {
+toggleButton.addEventListener('click', function() {
+    if (!isRunning) {
+        startTimer(timeRemaining);
+        isRunning = true;
+        isPaused = false;
+        toggleButton.textContent = 'Pausa'; // Cambia il testo in "Pausa" quando il timer parte
+        messageElement.textContent = '';
+    } else if (isPaused) {
         startTimer(timeRemaining);
         isPaused = false;
+        toggleButton.textContent = 'Pausa'; // Cambia il testo in "Pausa" quando il timer riparte
         messageElement.textContent = '';
     } else {
-        startTimer(workTime);
-    }
-});
-
-document.getElementById('pauseButton').addEventListener('click', function() {
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        isPaused = true;
-        messageElement.textContent = 'Timer in pausa';
+        pauseTimer();
     }
 });
 
@@ -109,9 +110,12 @@ function startTimer(duration) {
                 currentCycle++;
                 cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
                 // Avvia automaticamente il nuovo ciclo di lavoro
+                timeRemaining = workTime;
                 startTimer(workTime);
             } else {
                 messageElement.textContent = 'Hai completato tutti i cicli!';
+                toggleButton.textContent = 'Inizia';
+                isRunning = false;
             }
         } else {
             timerElement.textContent = formatTime(timeRemaining);
@@ -119,21 +123,31 @@ function startTimer(duration) {
     }, 1000);
 }
 
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+function pauseTimer() {
+    clearInterval(timerInterval);
+    isPaused = true;
+    isRunning = false;
+    messageElement.textContent = 'Timer in pausa';
+    toggleButton.textContent = 'Inizia'; // Cambia il testo in "Inizia" quando il timer è in pausa
 }
 
 function resetTimer() {
     clearInterval(timerInterval);
     isPaused = false;
+    isRunning = false;
     timeRemaining = workTime;
     currentCycle = 1; // Resetta il ciclo corrente al primo ciclo
     cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
     timerElement.textContent = formatTime(timeRemaining);
     messageElement.textContent = '';
+    toggleButton.textContent = 'Inizia'; // Cambia il testo in "Inizia" quando il timer è fermo
     quoteElement.textContent = ''; // Rimuove eventuali citazioni precedenti
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
 function showRandomQuote() {
@@ -172,5 +186,9 @@ window.addEventListener('load', () => {
         currentCycle = parseInt(localStorage.getItem('currentCycle'), 10) || 1; // Riprendi il ciclo corrente
         cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`;
         timerElement.textContent = formatTime(timeRemaining);
+        toggleButton.textContent = isPaused || !isRunning ? 'Inizia' : 'Pausa'; // Imposta il testo del pulsante correttamente al caricamento
     }
 });
+
+
+

@@ -32,13 +32,6 @@ h1 {
     margin-bottom: 20px; /* Distanza dal titolo */
 }
 
-#timer {
-    font-size: 96px; /* Dimensione molto più grande per il timer */
-    font-weight: bold; /* Grassetto per enfatizzare il timer */
-    margin: 30px 0;
-    color: #ffffff; /* Testo del timer molto chiaro */
-}
-
 #cycleInfo {
     font-size: 20px; /* Aumentato leggermente anche il font delle informazioni del ciclo */
     font-weight: bold;
@@ -48,6 +41,14 @@ h1 {
     border: 2px solid #00acc1;
     border-radius: 8px;
     display: inline-block;
+    margin-bottom: 20px; /* Spazio sotto il ciclo, sopra il timer */
+}
+
+#timer {
+    font-size: 96px; /* Dimensione molto più grande per il timer */
+    font-weight: bold; /* Grassetto per enfatizzare il timer */
+    margin: 20px 0;
+    color: #ffffff; /* Testo del timer molto chiaro */
 }
 
 #controls, #customization {
@@ -123,7 +124,7 @@ input:focus {
 
 #saveSettings {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 10px; /* Ridotto per avvicinare il tasto Salva Impostazioni */
     /* Centra il pulsante Salva Impostazioni */
 }
 
