@@ -27,106 +27,186 @@ body {
     box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
-/* Media query per iPhone, Pixel e schermi piccoli */
+/* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
     .container {
-        padding: 10px;
-        max-width: 100%; 
-        max-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Distribuisce lo spazio in modo uniforme */
-        overflow: hidden;
+        padding: 10px; /* Ridotto padding su dispositivi mobili */
+        max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
+        max-height: 100vh; /* Usa tutta l'altezza disponibile */
+        margin: 0 auto; /* Centro la bolla e riduco margini */
+        overflow: hidden; /* Disabilita lo scorrimento interno */
     }
 
     h1 {
-        font-size: 22px; /* Manteniamo il titolo vicino all'originale */
+        font-size: 20px; /* Ridotto il titolo */
         margin-bottom: 5px;
     }
 
     #symbols {
-        font-size: 20px; /* Simboli leggermente ridotti */
+        font-size: 18px; /* Ridotto la dimensione dei simboli */
         margin-bottom: 5px;
     }
 
     #cycleInfo {
-        font-size: 16px; /* Dimensione testo ciclo leggermente ridotta */
+        font-size: 16px; /* Ridotta la dimensione del ciclo */
         margin-bottom: 5px;
     }
 
     #timer {
-        font-size: 50px; /* Timer leggermente ridotto per rientrare nello schermo */
-        padding: 10px;
-        margin: 10px 0;
+        font-size: 48px; /* Ridotto ulteriormente il timer */
+        padding: 10px; /* Ridotto padding */
+        margin: 10px 0; /* Ridotto margine superiore e inferiore */
     }
 
     #controls {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 5px; /* Ridotto margine superiore */
+        margin-bottom: 5px; /* Ridotto margine inferiore */
     }
 
     button {
-        padding: 10px 14px; 
-        font-size: 14px;
+        padding: 8px 12px; /* Ridotto padding dei pulsanti */
+        font-size: 14px; /* Ridotta la dimensione del testo */
     }
 
     input {
-        font-size: 14px;
-        max-width: 120px; 
-        padding: 8px;
+        font-size: 14px; /* Ridotta la dimensione del testo negli input */
+        max-width: 120px; /* Ridotta larghezza degli input */
+        padding: 6px; /* Ridotto padding interno */
     }
 
     #studyMessage {
-        font-size: 14px; 
-        margin-top: 10px;
-        padding: 5px 0;
-        text-align: center;
-        color: #40E0D0; /* Colore turchese per coerenza */
+        font-size: 14px; /* Ridotto la dimensione del messaggio finale */
+        margin-top: 10px; /* Ridotto margine superiore */
     }
 }
 
-    h1 {
-        font-size: 18px; /* Ridotto il titolo */
-        margin-bottom: 4px;
-    }
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #40E0D0; /* Colore turchese minerale */
+}
 
-    #symbols {
-        font-size: 16px; /* Ridotto la dimensione dei simboli */
-        margin-bottom: 4px;
-    }
+#symbols {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
-    #cycleInfo {
-        font-size: 14px; /* Ridotta la dimensione del ciclo */
-        margin-bottom: 4px;
-    }
+#cycleInfo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 5px; /* Ridotto il margine superiore */
+    padding: 8px;
+    border: 2px solid #40E0D0; /* Colore turchese minerale */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 
-    #timer {
-        font-size: 36px; /* Ridotto ulteriormente il timer */
-        padding: 4px; /* Ridotto padding */
-        margin: 4px 0; /* Ridotto margine superiore e inferiore */
-    }
+#timer {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 15px 0; /* Ridotto margine superiore e inferiore */
+    color: #ffffff;
+    border: 3px solid #40E0D0; /* Colore turchese minerale */
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
+    background-color: #121212;
+}
 
-    #controls {
-        margin-top: 4px; /* Ridotto margine superiore */
-        margin-bottom: 4px; /* Ridotto margine inferiore */
-    }
+#controls {
+    margin-top: 10px; /* Ridotto margine superiore */
+    margin-bottom: 10px; /* Ridotto margine inferiore */
+}
 
-    button {
-        padding: 6px 10px; /* Ridotto padding dei pulsanti */
-        font-size: 12px; /* Ridotta la dimensione del testo */
-    }
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 5px 5px;
+    cursor: pointer;
+    background-color: #40E0D0; /* Turchese minerale */
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-    input {
-        font-size: 12px; /* Ridotta la dimensione del testo negli input */
-        max-width: 80px; /* Ridotta larghezza degli input */
-        padding: 4px; /* Ridotto padding interno */
-    }
+button:hover {
+    background-color: #36c1b5; /* Colore leggermente più scuro per il hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
 
-    #studyMessage {
-        font-size: 12px; /* Ridotto la dimensione del messaggio finale */
-        margin-top: 4px; /* Margine ridotto */
-        text-align: center;
-        padding: 4px 0;
-        color: #40E0D0; /* Turchese minerale per visibilità */
-    }
+button:active {
+    background-color: #2fa9a2; /* Colore più scuro per il click */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+#toggleButton i, #stopButton i {
+    font-size: 20px;
+}
+
+#message, #quote {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #b0b0b0;
+    min-height: 24px;
+}
+
+label {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    max-width: 150px;
+    padding: 8px;
+    border: 2px solid #40E0D0; /* Turchese minerale */
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #40E0D0; /* Turchese minerale per il focus */
+    outline: none;
+}
+
+#customization {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#customization div {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#saveSettings, #defaultSettings {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Messaggio finale */
+#studyMessage {
+    font-size: 20px;
+    color: #40E0D0; /* Turchese minerale */
+    margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
+    text-align: center; /* Centro il testo */
 }
