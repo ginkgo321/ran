@@ -4,7 +4,7 @@ body {
     background-color: #0d0d0d; /* Sfondo più scuro */
     color: #e0e0e0;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Aggiunto padding per creare margini */
     display: flex;
     align-items: center;
     justify-content: center;
