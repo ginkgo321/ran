@@ -47,7 +47,7 @@ const quotes = [
     "Knowledge is power. – Sir Francis Bacon"
 ];
 
-// Funzione per gestire il click del pulsante di avvio/pausa
+// Gestione del pulsante di avvio/pausa
 toggleButton.addEventListener('click', function() {
     if (!isRunning && !isPaused) {
         startTimer(timeRemaining);
@@ -65,19 +65,20 @@ toggleButton.addEventListener('click', function() {
     }
 });
 
-// Funzione per gestire il click del pulsante di stop
+// Gestione del pulsante di stop
 document.getElementById('stopButton').addEventListener('click', function() {
     resetTimer();
 });
 
-// Funzione per salvare le impostazioni
+// Gestione del pulsante di salvataggio delle impostazioni
 document.getElementById('saveSettings').addEventListener('click', function() {
-    workTime = document.getElementById('workTime').value * 60;
-    breakTime = document.getElementById('breakTime').value * 60;
-    totalCycles = document.getElementById('cycleCount').value;
-    timeRemaining = workTime;
-    timerElement.textContent = formatTime(timeRemaining);
-    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Aggiorna l'indicazione del ciclo
+    saveSettings();
+});
+
+// Gestione del pulsante di impostazioni predefinite
+document.getElementById('defaultSettings').addEventListener('click', function() {
+    setDefaultSettings();
+    saveSettings(); // Salva automaticamente dopo aver impostato i valori predefiniti
 });
 
 // Funzione per avviare il timer
@@ -163,6 +164,23 @@ function showNotification(message) {
 function playSound() {
     const audio = new Audio('notification.wav');
     audio.play();
+}
+
+// Funzione per salvare le impostazioni
+function saveSettings() {
+    workTime = document.getElementById('workTime').value * 60;
+    breakTime = document.getElementById('breakTime').value * 60;
+    totalCycles = document.getElementById('cycleCount').value;
+    timeRemaining = workTime;
+    timerElement.textContent = formatTime(timeRemaining);
+    cycleInfoElement.textContent = `Ciclo ${currentCycle}/${totalCycles}`; // Aggiorna l'indicazione del ciclo
+}
+
+// Funzione per impostare i valori predefiniti
+function setDefaultSettings() {
+    document.getElementById('workTime').value = 25;
+    document.getElementById('breakTime').value = 5;
+    document.getElementById('cycleCount').value = 4;
 }
 
 // Imposta il timer e l'icona all'apertura della pagina

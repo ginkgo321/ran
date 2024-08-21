@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #0d0d0d;
+    background-color: #0d0d0d; /* Sfondo più scuro */
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -9,14 +9,14 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    font-size: 16px; /* Dimensione font leggermente ridotta */
+    font-size: 16px;
 }
 
 .container {
-    background-color: #161616;
-    border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
-    padding: 20px; /* Ridotto il padding per guadagnare spazio */
+    background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
+    border-radius: 16px; /* Angoli arrotondati per la bolla */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
+    padding: 40px;
     max-width: 90%;
     width: 100%;
     display: flex;
@@ -25,21 +25,21 @@ body {
 }
 
 h1 {
-    font-size: 28px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 28px;
     margin-bottom: 5px;
-    color: #00e5ff;
+    color: #40E0D0; /* Colore turchese minerale */
 }
 
 #symbols {
-    font-size: 24px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 #cycleInfo {
-    font-size: 18px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 18px;
     font-weight: bold;
     color: #ffffff;
-    margin-top: 10px; /* Ridotto il margine per guadagnare spazio */
+    margin-top: 10px;
     padding: 8px;
     border: 2px solid #ffffff;
     border-radius: 8px;
@@ -47,13 +47,13 @@ h1 {
 }
 
 #timer {
-    font-size: 72px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 72px;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 20px 0;
     color: #ffffff;
     border: 3px solid #ffffff;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
     background-color: #121212;
 }
@@ -64,11 +64,11 @@ h1 {
 }
 
 button {
-    padding: 12px 20px; /* Ridotto per guadagnare spazio su mobile */
+    padding: 12px 20px;
     font-size: 16px;
-    margin: 5px 5px; /* Ridotto per guadagnare spazio su mobile */
+    margin: 5px 5px;
     cursor: pointer;
-    background-color: #00e5ff;
+    background-color: #40E0D0; /* Turchese minerale */
     color: #000000;
     border: none;
     border-radius: 4px;
@@ -77,28 +77,28 @@ button {
 }
 
 button:hover {
-    background-color: #00b8cc;
+    background-color: #36c1b5; /* Colore leggermente più scuro per il hover */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 button:active {
-    background-color: #0099aa;
+    background-color: #2fa9a2; /* Colore più scuro per il click */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 #toggleButton i, #stopButton i {
-    font-size: 20px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 20px;
 }
 
 #message, #quote {
     margin-top: 10px;
-    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 16px;
     color: #b0b0b0;
     min-height: 24px;
 }
 
 label {
-    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 16px;
     color: #e0e0e0;
     margin-bottom: 8px;
     display: block;
@@ -107,20 +107,20 @@ label {
 
 input {
     width: 100%;
-    max-width: 150px; /* Ridotto per guadagnare spazio su mobile */
+    max-width: 150px;
     padding: 8px;
-    border: 2px solid #00e5ff;
+    border: 2px solid #40E0D0; /* Turchese minerale */
     border-radius: 4px;
     background-color: #1e1e1e;
     color: #ffffff;
-    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
+    font-size: 16px;
     text-align: center;
     margin-bottom: 10px;
     transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border-color: #00e5ff;
+    border-color: #40E0D0; /* Turchese minerale per il focus */
     outline: none;
 }
 
@@ -132,7 +132,7 @@ input:focus {
 }
 
 #customization div {
-    margin-bottom: 10px; /* Ridotto per guadagnare spazio su mobile */
+    margin-bottom: 10px;
     width: 100%;
     max-width: 200px;
     display: flex;
@@ -140,20 +140,20 @@ input:focus {
     align-items: center;
 }
 
-#saveSettings {
+#saveSettings, #defaultSettings {
     display: inline-block;
     margin-top: 10px;
-    padding: 10px 20px; /* Ridotto per guadagnare spazio su mobile */
-    font-size: 16px; /* Ridotto per guadagnare spazio su mobile */
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
 @media (max-width: 600px) {
     #timer {
-        font-size: 48px; /* Ulteriormente ridotto su dispositivi molto piccoli */
+        font-size: 48px;
     }
 
     h1 {
-        font-size: 24px; /* Ulteriormente ridotto su dispositivi molto piccoli */
+        font-size: 24px;
     }
 
     button {
