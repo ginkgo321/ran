@@ -30,32 +30,35 @@ body {
 /* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
     .container {
-        padding: 10px; /* Ridotto padding su dispositivi mobili */
+        padding: 8px; /* Ridotto padding su dispositivi mobili */
         max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
         max-height: 100vh; /* Usa tutta l'altezza disponibile */
         margin: 0 auto; /* Centro la bolla e riduco margini */
         overflow: hidden; /* Disabilita lo scorrimento interno */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Distribuisce meglio lo spazio tra gli elementi */
     }
 
     h1 {
-        font-size: 20px; /* Ridotto il titolo */
+        font-size: 18px; /* Ridotto il titolo */
         margin-bottom: 5px;
     }
 
     #symbols {
-        font-size: 18px; /* Ridotto la dimensione dei simboli */
+        font-size: 16px; /* Ridotto la dimensione dei simboli */
         margin-bottom: 5px;
     }
 
     #cycleInfo {
-        font-size: 16px; /* Ridotta la dimensione del ciclo */
+        font-size: 14px; /* Ridotta la dimensione del ciclo */
         margin-bottom: 5px;
     }
 
     #timer {
-        font-size: 48px; /* Ridotto ulteriormente il timer */
-        padding: 10px; /* Ridotto padding */
-        margin: 10px 0; /* Ridotto margine superiore e inferiore */
+        font-size: 44px; /* Ridotto ulteriormente il timer */
+        padding: 8px; /* Ridotto padding */
+        margin: 8px 0; /* Ridotto margine superiore e inferiore */
     }
 
     #controls {
@@ -64,19 +67,19 @@ body {
     }
 
     button {
-        padding: 8px 12px; /* Ridotto padding dei pulsanti */
-        font-size: 14px; /* Ridotta la dimensione del testo */
+        padding: 6px 10px; /* Ridotto padding dei pulsanti */
+        font-size: 12px; /* Ridotta la dimensione del testo */
     }
 
     input {
-        font-size: 14px; /* Ridotta la dimensione del testo negli input */
-        max-width: 120px; /* Ridotta larghezza degli input */
-        padding: 6px; /* Ridotto padding interno */
+        font-size: 12px; /* Ridotta la dimensione del testo negli input */
+        max-width: 100px; /* Ridotta larghezza degli input */
+        padding: 5px; /* Ridotto padding interno */
     }
 
     #studyMessage {
-        font-size: 14px; /* Ridotto la dimensione del messaggio finale */
-        margin-top: 10px; /* Ridotto margine superiore */
+        font-size: 12px; /* Ridotto la dimensione del messaggio finale */
+        margin-top: 5px; /* Ridotto margine superiore */
     }
 }
 
