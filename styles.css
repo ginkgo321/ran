@@ -4,11 +4,11 @@ body {
     background-color: #004d4d; /* Blu turchese scuro */
     color: #e0e0e0;
     margin: 0;
-    padding: 20px; /* Aggiunto padding per creare margini */
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
     font-size: 16px;
     overflow: hidden; /* Disabilita lo scorrimento */
 }
@@ -17,63 +17,40 @@ body {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
     border-radius: 16px; /* Angoli arrotondati per la bolla */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 15px 15px 10px 15px; /* Ridotto padding superiore e inferiore */
+    padding: 20px; /* Padding uniforme */
     max-width: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto; /* Garantisce che l'altezza si adatti al contenuto */
-    max-height: 100vh; /* Assicura che la bolla contenitrice non sia mai più alta dello schermo */
-    box-sizing: border-box; /* Include il padding nella dimensione totale */
-    overflow: auto; /* Permette un leggero scorrimento se necessario su mobile */
+    max-height: 90vh; /* Ridotto per lasciare spazio sopra e sotto */
+    box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
+/* Media query per iPhone e schermi piccoli */
 @media (max-width: 600px) {
     .container {
-        padding: 10px 10px 10px 10px; /* Ridotto padding su mobile */
-        width: 100%;
-        max-width: 100%; /* Assicura che la larghezza sia piena su mobile */
-        height: auto; /* Altezza automatica per adattarsi al contenuto */
-        max-height: 100vh; /* Limita l'altezza massima alla dimensione della finestra su mobile */
-        box-sizing: border-box; /* Include il padding nella dimensione totale */
-        overflow-y: auto; /* Aggiunge un leggero scorrimento verticale se necessario */
+        padding: 10px; /* Ridotto padding su dispositivi mobili */
+        max-width: 95%; /* Usa quasi tutta la larghezza disponibile */
+        max-height: 90vh; /* Usa la maggior parte dell'altezza disponibile */
+        margin: 0 auto; /* Centro la bolla e riduco margini */
+        overflow-y: auto; /* Permette lo scorrimento interno solo se necessario */
     }
 
     h1 {
-        font-size: 22px; /* Ridotto leggermente il titolo su mobile */
-        margin-bottom: 5px;
-    }
-
-    #symbols {
-        font-size: 20px; /* Ridotto la dimensione dei simboli su mobile */
+        font-size: 24px; /* Ridotto leggermente il titolo */
     }
 
     #timer {
-        font-size: 50px; /* Ridotto leggermente il timer su mobile */
-        padding: 10px; /* Ridotto padding su mobile */
-    }
-
-    #controls {
-        margin-top: 5px; /* Ridotto il margine superiore */
-        margin-bottom: 5px; /* Ridotto il margine inferiore */
+        font-size: 60px; /* Ridotto leggermente il timer per adattarsi meglio */
     }
 
     button {
-        padding: 8px 14px; /* Ridotto padding dei pulsanti su mobile */
+        padding: 10px 16px;
         font-size: 14px;
-    }
-
-    input {
-        font-size: 14px;
-        max-width: 120px; /* Ridotto leggermente la larghezza su mobile */
-    }
-
-    #studyMessage {
-        font-size: 16px;
-        margin-top: 8px; /* Ridotto il margine superiore su mobile */
     }
 }
+
 
 
 h1 {
