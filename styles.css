@@ -13,18 +13,18 @@ body {
 }
 
 .container {
-    background-color: #1e1e1e; /* Contenitore scuro */
+    background-color: #1f1f1f; /* Contenitore leggermente più scuro */
     border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Ombra in stile Material */
-    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata */
+    padding: 40px;
     max-width: 90%; /* Ridotto da 400px per adattarsi meglio agli schermi piccoli */
     width: 100%;
 }
 
 h1 {
-    font-size: 28px; /* Aumentato per il titolo */
+    font-size: 36px; /* Aumentato per il titolo */
     margin-bottom: 5px;
-    color: #90caf9; /* Colore primario Material per tema scuro */
+    color: #ff6f61; /* Colore d'accento moderno */
 }
 
 #symbols {
@@ -33,18 +33,19 @@ h1 {
 }
 
 #timer {
-    font-size: 64px; /* Dimensione maggiore del timer */
-    margin: 20px 0;
-    color: #e0e0e0; /* Testo del timer chiaro */
+    font-size: 96px; /* Dimensione molto più grande per il timer */
+    font-weight: bold; /* Grassetto per enfatizzare il timer */
+    margin: 30px 0;
+    color: #ffffff; /* Testo del timer molto chiaro */
 }
 
 #cycleInfo {
     font-size: 20px; /* Aumentato leggermente anche il font delle informazioni del ciclo */
     font-weight: bold;
-    color: #90caf9;
+    color: #ff6f61;
     margin-top: 20px;
     padding: 10px;
-    border: 2px solid #90caf9;
+    border: 2px solid #ff6f61;
     border-radius: 8px;
     display: inline-block;
 }
@@ -58,22 +59,22 @@ button {
     font-size: 18px; /* Aumenta la dimensione del testo dei pulsanti */
     margin: 10px 10px;
     cursor: pointer;
-    background-color: #333; /* Pulsanti scuri */
-    color: #e0e0e0; /* Testo dei pulsanti chiaro */
+    background-color: #ff6f61; /* Pulsanti con colore d'accento moderno */
+    color: #ffffff; /* Testo dei pulsanti chiaro */
     border: none;
     border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Ombra leggera */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #555; /* Colore di sfondo dei pulsanti al passaggio del mouse */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata al passaggio del mouse */
+    background-color: #ff8a75; /* Colore di sfondo dei pulsanti al passaggio del mouse */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata al passaggio del mouse */
 }
 
 button:active {
-    background-color: #777; /* Colore di sfondo dei pulsanti quando premuti */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata quando premuto */
+    background-color: #ff5147; /* Colore di sfondo dei pulsanti quando premuti */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata quando premuto */
 }
 
 #message, #quote {
@@ -83,26 +84,28 @@ button:active {
 }
 
 label, input {
-    font-size: 18px;
-    margin-right: 10px;
-    color: #b0b0b0;
+    font-size: 20px; /* Aumentato per rendere più leggibile */
+    margin-bottom: 10px; /* Aggiunta di margine per separare le righe */
+    color: #e0e0e0;
+    display: block; /* Dividi le label su righe separate */
 }
 
 input {
-    padding: 5px;
+    padding: 8px;
     border: 1px solid #444;
     border-radius: 4px;
     background-color: #333;
     color: #e0e0e0;
+    margin-bottom: 20px; /* Spazio aggiuntivo tra gli input */
 }
 
 @media (max-width: 600px) {
     #timer {
-        font-size: 48px; /* Adattamento per schermi molto piccoli */
+        font-size: 72px; /* Adattamento per schermi molto piccoli */
     }
 
     h1 {
-        font-size: 24px; /* Adattamento per schermi molto piccoli */
+        font-size: 28px; /* Adattamento per schermi molto piccoli */
     }
 
     button {
