@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-color: #0d0d0d; /* Sfondo più scuro */
+    background-color: #2c2a4a; /* Blu-viola scuro */
     color: #e0e0e0;
     margin: 0;
     padding: 20px; /* Aggiunto padding per creare margini */
@@ -12,6 +12,7 @@ body {
     font-size: 16px;
     overflow: hidden; /* Disabilita lo scorrimento */
 }
+
 
 .container {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
