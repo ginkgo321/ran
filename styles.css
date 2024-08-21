@@ -46,3 +46,7 @@ button:active {
     margin-top: 20px;
     font-size: 18px;
 }
+
+#cycleInfo {
+    font-weight: bold; /* Grassetto per l'informazione del ciclo */
+}
