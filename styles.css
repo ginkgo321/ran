@@ -4,26 +4,27 @@ body {
     background-color: #004d4d; /* Blu turchese scuro */
     color: #e0e0e0;
     margin: 0;
-    padding: 20px; /* Aggiunto padding per creare margini */
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
     font-size: 16px;
     overflow: hidden; /* Disabilita lo scorrimento */
 }
-
 
 .container {
     background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
     border-radius: 16px; /* Angoli arrotondati per la bolla */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-    padding: 20px 20px 10px 20px; /* Ridotto padding superiore e inferiore */
+    padding: 20px; /* Padding uniforme */
     max-width: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 90vh; /* Ridotto per lasciare spazio sopra e sotto */
+    box-sizing: border-box; /* Include padding e bordi nel calcolo dell'altezza */
 }
 
 h1 {
@@ -43,7 +44,7 @@ h1 {
     color: #ffffff;
     margin-top: 5px; /* Ridotto il margine superiore */
     padding: 8px;
-    border: 2px solid #ffffff;
+    border: 2px solid #40E0D0; /* Colore turchese minerale */
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -53,7 +54,7 @@ h1 {
     font-weight: bold;
     margin: 15px 0; /* Ridotto margine superiore e inferiore */
     color: #ffffff;
-    border: 3px solid #ffffff;
+    border: 3px solid #40E0D0; /* Colore turchese minerale */
     border-radius: 8px;
     padding: 20px;
     display: inline-block;
@@ -155,46 +156,4 @@ input:focus {
     color: #40E0D0; /* Turchese minerale */
     margin-top: 20px; /* Aumentato il margine superiore per abbassare il messaggio */
     text-align: center; /* Centro il testo */
-}
-
-@media (max-width: 600px) {
-    .container {
-        background-color: #1A1A1A; /* Sfondo leggermente più chiaro per la bolla contenitrice */
-        border-radius: 16px; /* Angoli arrotondati per la bolla */
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Ombra più pronunciata */
-        padding: 15px 15px 10px 15px; /* Ridotto padding superiore e inferiore */
-        max-width: 90%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto; /* Garantisce che l'altezza si adatti al contenuto */
-        max-height: calc(100vh - 40px); /* Assicura che la bolla contenitrice non sia mai più alta dello schermo */
-        overflow: hidden; /* Evita che il contenuto esca dai bordi */
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-bottom: 5px;
-    }
-
-    #timer {
-        font-size: 60px; /* Ridotto leggermente il timer su mobile */
-        padding: 15px; /* Ridotto padding su mobile */
-    }
-
-    #studyMessage {
-        font-size: 18px;
-        margin-top: 10px; /* Margine superiore ridotto su mobile */
-    }
-
-    button {
-        padding: 10px 16px;
-        font-size: 14px;
-    }
-
-    input {
-        font-size: 14px;
-        max-width: 120px; /* Ridotto leggermente la larghezza su mobile */
-    }
 }
