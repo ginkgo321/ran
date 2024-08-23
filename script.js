@@ -7,6 +7,7 @@ let isWorking = true;
 let timerInterval;
 
 const notificationSound = document.getElementById('notificationSound');
+const notificationLongSound = document.getElementById('notificationLongSound');
 const studyMessageElement = document.getElementById('studyMessage');
 
 // Salvataggio delle impostazioni
@@ -98,6 +99,8 @@ document.getElementById('toggleButton').addEventListener('click', () => {
         clearInterval(timerInterval);
         timerInterval = null;
         document.getElementById('toggleIcon').classList.replace('fa-pause', 'fa-play');
+        stopRain();
+        stopSounds();
     }
 });
 
@@ -110,6 +113,8 @@ document.getElementById('stopButton').addEventListener('click', () => {
     isWorking = true;
     updateCycleInfo();
     resetStudyMessage();
+    stopRain();
+    stopSounds();
 });
 
 function startTimer(duration, display) {
@@ -134,34 +139,88 @@ function startTimer(duration, display) {
 function timerFinished() {
     if (isWorking) {
         if (currentCycle >= cycleCount) {
-            updateCycleInfo(true); // Passiamo true per indicare la pausa lunga
-            updateStudyMessage(true); // Mostra il messaggio della pausa lunga
-            startTimer(longBreakTime, document.getElementById('time'));
-            currentCycle = 1; // Resetta i cicli dopo la pausa lunga
+            handleLongBreak();
         } else {
-            updateCycleInfo(false, true); // Passiamo true per indicare la pausa breve
-            updateStudyMessage(); // Mostra il messaggio della pausa breve
-            startTimer(breakTime, document.getElementById('time'));
-            currentCycle++;
+            handleShortBreak();
         }
     } else {
-        resetStudyMessage(); // Ripristina il messaggio di studio
-        startTimer(workTime, document.getElementById('time'));
-        updateCycleInfo(); // Ripristina "Ciclo X/X" al termine della pausa breve
+        handleWorkPeriod();
     }
     isWorking = !isWorking;
 }
 
+function handleLongBreak() {
+    playLongBreakNotification();
+    startRain();
+    updateCycleInfo(true);
+    updateStudyMessage(true);
+    startTimer(longBreakTime, document.getElementById('time'));
+    currentCycle = 1;
+}
+
+function handleShortBreak() {
+    playNotification();
+    updateCycleInfo(false, true);
+    updateStudyMessage();
+    startTimer(breakTime, document.getElementById('time'));
+    currentCycle++;
+}
+
+function handleWorkPeriod() {
+    stopRain(); // Assicuriamoci che la pioggia si fermi quando inizia un nuovo ciclo di lavoro
+    resetStudyMessage();
+    startTimer(workTime, document.getElementById('time'));
+    updateCycleInfo();
+}
+
+function startRain() {
+    const rainContainer = document.createElement('div');
+    rainContainer.id = 'rainContainer';
+    document.body.appendChild(rainContainer);
+
+    const breakSymbols = ['➿', '🐾'];
+    for (let i = 0; i < 20; i++) { // Numero di simboli da generare
+        const symbol = document.createElement('div');
+        symbol.classList.add('rain-symbol');
+        symbol.textContent = breakSymbols[Math.floor(Math.random() * breakSymbols.length)];
+        rainContainer.appendChild(symbol);
+
+        // Posizionamento casuale e durata dell'animazione
+        symbol.style.left = Math.random() * 100 + 'vw';
+        symbol.style.top = Math.random() * 100 + 'vh'; // Aggiungi top per la posizione verticale
+        symbol.style.animationDuration = Math.random() * 5 + 3 + 's'; // Durata variabile tra 3 e 8 secondi
+    }
+}
+
+function stopRain() {
+    const rainContainer = document.getElementById('rainContainer');
+    if (rainContainer) {
+        rainContainer.remove(); // Rimuove il contenitore della pioggia e i simboli
+    }
+}
+
+
 function playNotification() {
-    notificationSound.play();
+    notificationSound.play(); // Riproduci suono breve alla fine di ogni ciclo
+}
+
+function playLongBreakNotification() {
+    notificationLongSound.play(); // Riproduci suono lungo alla fine dell'ultimo ciclo di lavoro
+}
+
+function stopSounds() {
+    notificationSound.pause();
+    notificationSound.currentTime = 0;
+    notificationLongSound.pause();
+    notificationLongSound.currentTime = 0;
 }
 
 function updateCycleInfo(isLongBreak = false, isShortBreak = false) {
     const cycleInfoElement = document.getElementById('cycleInfo');
     if (isLongBreak) {
-        cycleInfoElement.textContent = "Pausa lunga";
+        cycleInfoElement.textContent = "Pausa lunga 😎";
     } else if (isShortBreak) {
-        cycleInfoElement.textContent = `Pausa breve del ciclo ${currentCycle}/${cycleCount}`;
+        cycleInfoElement.textContent = `Pausa breve (Ciclo ${currentCycle}/${cycleCount}) ⏳️`;
     } else {
         cycleInfoElement.textContent = `Ciclo ${currentCycle}/${cycleCount}`;
     }
@@ -169,7 +228,7 @@ function updateCycleInfo(isLongBreak = false, isShortBreak = false) {
 
 function updateStudyMessage(isLongBreak = false) {
     if (isLongBreak) {
-        studyMessageElement.textContent = "Hai completato tutti i cicli! Ora vai a sgranocchiare qualcosa ﺕ";
+        studyMessageElement.textContent = "Complimenti! Hai completato tutti i cicli! Ora vai a sgranocchiare qualcosa ﺕ";
     } else {
         studyMessageElement.textContent = "Bravissima! Ora pausa ﺕ";
     }
@@ -184,3 +243,4 @@ function formatTime(seconds) {
     const remainingSeconds = seconds % 60;
     return `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
+

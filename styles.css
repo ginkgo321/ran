@@ -214,3 +214,23 @@ button:active {
 #settingsContent button:active {
     background-color: #2fa9a2;
 }
+
+/* Animazione pioggia simboli */
+@keyframes rainAnimation {
+    0% {
+        top: -10%;
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+.rain-symbol {
+    position: fixed;
+    font-size: 30px;
+    animation: rainAnimation linear infinite;
+    opacity: 0;
+    z-index: 9999;
+}
