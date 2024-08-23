@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍅 Pomodoro Timer</title>
+    <title>Pomodoro Timer</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome per le icone -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Pomodoro Timerrr</h1>
+        <h1>Pomodoro Timer</h1>
         <div id="symbols">🐨 ❤️ 🦥</div>
         
         <div id="cycleInfo">Ciclo 1/4</div>
@@ -56,7 +57,8 @@
         
         <p id="message"></p>
         <p id="quote"></p>
-    </div>
+     </div>
+    <audio id="notificationSound" src="notification.wav"></audio>
     <script src="script.js"></script>
 </body>
 </html>
