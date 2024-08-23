@@ -1,131 +1,149 @@
-// Gestione del timer
-let workTime = 25;
-let breakTime = 5;
+let workTime = 25 * 60;
+let breakTime = 5 * 60;
+let longBreakTime = 15 * 60;
 let cycleCount = 4;
 let currentCycle = 1;
-let timer;
-let isRunning = false;
-let isWorkTime = true;
+let isWorking = true;
+let timerInterval;
 
-function updateTimerDisplay(minutes, seconds) {
-    const timeDisplay = document.getElementById("time");
-    timeDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-}
+const notificationSound = document.getElementById('notificationSound');
+const studyMessageElement = document.getElementById('studyMessage');
+
+// Salvataggio delle impostazioni
+document.getElementById('saveSettings').addEventListener('click', () => {
+    workTime = document.getElementById('workTime').value * 60;
+    breakTime = document.getElementById('breakTime').value * 60;
+    longBreakTime = document.getElementById('longBreakTime').value * 60;
+    cycleCount = document.getElementById('cycleCount').value;
+
+    // Aggiorna immediatamente il timer con il nuovo tempo di studio
+    document.getElementById('time').textContent = formatTime(workTime);
+    
+    // Chiudi il menu delle impostazioni
+    document.getElementById('settingsContent').classList.remove('show');
+});
+
+// Impostazioni predefinite
+document.getElementById('defaultSettings').addEventListener('click', () => {
+    document.getElementById('workTime').value = 25;
+    document.getElementById('breakTime').value = 5;
+    document.getElementById('longBreakTime').value = 15;
+    document.getElementById('cycleCount').value = 4;
+    
+    // Chiudi il menu delle impostazioni
+    document.getElementById('settingsContent').classList.remove('show');
+});
+
+// Annulla le modifiche e chiudi il menu
+document.getElementById('cancelSettings').addEventListener('click', () => {
+    // Ripristina i valori attuali (quelli già salvati)
+    document.getElementById('workTime').value = workTime / 60;
+    document.getElementById('breakTime').value = breakTime / 60;
+    document.getElementById('longBreakTime').value = longBreakTime / 60;
+    document.getElementById('cycleCount').value = cycleCount;
+
+    // Chiudi il menu delle impostazioni
+    document.getElementById('settingsContent').classList.remove('show');
+});
+
+// Apertura del menu delle impostazioni
+document.getElementById('settingsButton').addEventListener('click', () => {
+    document.getElementById('settingsContent').classList.toggle('show');
+});
+
+document.getElementById('toggleButton').addEventListener('click', () => {
+    if (!timerInterval) {
+        startTimer(workTime, document.getElementById('time'));
+        updateCycleInfo();
+        document.getElementById('toggleIcon').classList.replace('fa-play', 'fa-pause');
+    } else {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        document.getElementById('toggleIcon').classList.replace('fa-pause', 'fa-play');
+    }
+});
+
+document.getElementById('stopButton').addEventListener('click', () => {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    document.getElementById('time').textContent = formatTime(workTime);
+    document.getElementById('toggleIcon').classList.replace('fa-pause', 'fa-play');
+    currentCycle = 1;
+    isWorking = true;
+    updateCycleInfo();
+    resetStudyMessage();
+});
 
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
-    return setInterval(() => {
+    timerInterval = setInterval(() => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-        updateTimerDisplay(minutes, seconds);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            clearInterval(timer);
-            document.getElementById("notificationSound").play(); // Riproduce il suono
-
-            if (isWorkTime) {
-                if (currentCycle < cycleCount) {
-                    isWorkTime = false;
-                    timer = breakTime * 60;
-                    document.getElementById("studyMessage").textContent = "Bravissima! Ora pausa ﺕ";
-                    currentCycle++;
-                    document.getElementById("cycleInfo").textContent = `Ciclo ${currentCycle}/${cycleCount}`;
-                    document.getElementById("notificationSound").play(); // Riproduce il suono all'inizio della pausa
-                } else {
-                    document.getElementById("studyMessage").textContent = "Hai completato tutti i cicli! Ora vai a sgranocchiare qualcosa ﺕ";
-                    document.getElementById("toggleIcon").className = "fas fa-play";
-                    isRunning = false;
-                }
-            } else {
-                isWorkTime = true;
-                timer = workTime * 60;
-                document.getElementById("studyMessage").textContent = "Forza, rimettiti a studiare! 💪🏻";
-                document.getElementById("notificationSound").play(); // Riproduce il suono all'inizio del lavoro
-            }
+            clearInterval(timerInterval);
+            playNotification();
+            timerFinished();
         }
     }, 1000);
 }
 
-document.getElementById("toggleButton").addEventListener("click", () => {
-    if (isRunning) {
-        clearInterval(timer);
-        document.getElementById("toggleIcon").className = "fas fa-play";
-    } else {
-        if (!timer) {
-            timer = startTimer(workTime * 60, document.querySelector("#time"));
+function timerFinished() {
+    if (isWorking) {
+        if (currentCycle >= cycleCount) {
+            updateCycleInfo(true); // Passiamo true per indicare la pausa lunga
+            updateStudyMessage(true); // Mostra il messaggio della pausa lunga
+            startTimer(longBreakTime, document.getElementById('time'));
+            currentCycle = 1; // Resetta i cicli dopo la pausa lunga
         } else {
-            timer = startTimer(parseInt(document.querySelector("#time").textContent.split(":")[0]) * 60 + parseInt(document.querySelector("#time").textContent.split(":")[1]), document.querySelector("#time"));
+            updateCycleInfo(false, true); // Passiamo true per indicare la pausa breve
+            updateStudyMessage(); // Mostra il messaggio della pausa breve
+            startTimer(breakTime, document.getElementById('time'));
+            currentCycle++;
         }
-        document.getElementById("toggleIcon").className = "fas fa-pause";
+    } else {
+        resetStudyMessage(); // Ripristina il messaggio di studio
+        startTimer(workTime, document.getElementById('time'));
+        updateCycleInfo(); // Ripristina "Ciclo X/X" al termine della pausa breve
     }
-    isRunning = !isRunning;
-});
-
-document.getElementById("stopButton").addEventListener("click", () => {
-    clearInterval(timer);
-    timer = null;
-    isRunning = false;
-    isWorkTime = true;
-    currentCycle = 1;
-    updateTimerDisplay(workTime, 0);
-    document.getElementById("toggleIcon").className = "fas fa-play";
-    document.getElementById("studyMessage").textContent = "Buono studio ❤️";
-    document.getElementById("cycleInfo").textContent = `Ciclo ${currentCycle}/${cycleCount}`;
-});
-
-// Funzione per chiudere il menu delle Impostazioni
-function closeSettingsMenu() {
-    var settingsContent = document.getElementById('settingsContent');
-    settingsContent.classList.remove('show');
-    setTimeout(() => { settingsContent.style.display = "none"; }, 300); // Delay to match the transition
+    isWorking = !isWorking;
 }
 
-// Salvataggio delle impostazioni personalizzate
-document.getElementById("saveSettings").addEventListener("click", () => {
-    workTime = parseInt(document.getElementById("workTime").value);
-    breakTime = parseInt(document.getElementById("breakTime").value);
-    cycleCount = parseInt(document.getElementById("cycleCount").value);
-    clearInterval(timer);
-    timer = null;
-    isRunning = false;
-    isWorkTime = true;
-    currentCycle = 1;
-    updateTimerDisplay(workTime, 0);
-    document.getElementById("toggleIcon").className = "fas fa-play";
-    document.getElementById("studyMessage").textContent = "Buono studio ❤️";
-    document.getElementById("cycleInfo").textContent = `Ciclo ${currentCycle}/${cycleCount}`;
-    closeSettingsMenu(); // Chiudi il menu dopo aver salvato
-});
+function playNotification() {
+    notificationSound.play();
+}
 
-// Ripristina le impostazioni predefinite
-document.getElementById("defaultSettings").addEventListener("click", () => {
-    workTime = 25;
-    breakTime = 5;
-    cycleCount = 4;
-    document.getElementById("workTime").value = workTime;
-    document.getElementById("breakTime").value = breakTime;
-    document.getElementById("cycleCount").value = cycleCount;
-    clearInterval(timer);
-    timer = null;
-    isRunning = false;
-    isWorkTime = true;
-    currentCycle = 1;
-    updateTimerDisplay(workTime, 0);
-    document.getElementById("toggleIcon").className = "fas fa-play";
-    document.getElementById("studyMessage").textContent = "Buono studio ❤️";
-    document.getElementById("cycleInfo").textContent = `Ciclo ${currentCycle}/${cycleCount}`;
-    closeSettingsMenu(); // Chiudi il menu dopo aver ripristinato
-});
-
-// Gestione del menu Impostazioni
-document.getElementById('settingsButton').addEventListener('click', function() {
-    var settingsContent = document.getElementById('settingsContent');
-    if (settingsContent.classList.contains('show')) {
-        settingsContent.classList.remove('show');
-        setTimeout(() => { settingsContent.style.display = "none"; }, 300); // Delay to match the transition
+function updateCycleInfo(isLongBreak = false, isShortBreak = false) {
+    const cycleInfoElement = document.getElementById('cycleInfo');
+    if (isLongBreak) {
+        cycleInfoElement.textContent = "Pausa lunga";
+    } else if (isShortBreak) {
+        cycleInfoElement.textContent = `Pausa breve del ciclo ${currentCycle}/${cycleCount}`;
     } else {
-        settingsContent.style.display = "block";
-        setTimeout(() => { settingsContent.classList.add('show'); }, 10); // Small delay to trigger transition
+        cycleInfoElement.textContent = `Ciclo ${currentCycle}/${cycleCount}`;
     }
-});
+}
+
+function updateStudyMessage(isLongBreak = false) {
+    if (isLongBreak) {
+        studyMessageElement.textContent = "Hai completato tutti i cicli! Ora vai a sgranocchiare qualcosa ﺕ";
+    } else {
+        studyMessageElement.textContent = "Bravissima! Ora pausa ﺕ";
+    }
+}
+
+function resetStudyMessage() {
+    studyMessageElement.textContent = "Buono studio ❤️";
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
 

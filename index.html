@@ -33,24 +33,29 @@
 
         <!-- Menu Impostazioni -->
         <div id="settingsMenu">
-            <button id="settingsButton">Impostazioni</button>
-            <div id="settingsContent">
-                <div>
-                    <label for="workTime">Tempo di studio (minuti):</label>
-                    <input type="number" id="workTime" value="25" min="1" max="60">
-                </div>
-                <div>
-                    <label for="breakTime">Tempo di pausa (minuti):</label>
-                    <input type="number" id="breakTime" value="5" min="1" max="30">
-                </div>
-                <div>
-                    <label for="cycleCount">Numero di cicli:</label>
-                    <input type="number" id="cycleCount" value="4" min="1" max="10">
-                </div>
-                <button id="saveSettings">Salva</button>
-                <button id="defaultSettings">Predefinito</button>
-            </div>
+    <button id="settingsButton">Impostazioni</button>
+    <div id="settingsContent">
+        <div>
+            <label for="workTime">Tempo di studio (minuti):</label>
+            <input type="number" id="workTime" value="25" min="1" max="60">
         </div>
+        <div>
+            <label for="breakTime">Tempo di pausa breve (minuti):</label>
+            <input type="number" id="breakTime" value="5" min="1" max="30">
+        </div>
+        <div>
+            <label for="longBreakTime">Tempo di pausa lunga (minuti):</label>
+            <input type="number" id="longBreakTime" value="15" min="1" max="60">
+        </div>
+        <div>
+            <label for="cycleCount">Numero di cicli:</label>
+            <input type="number" id="cycleCount" value="4" min="1" max="10">
+        </div>
+        <button id="saveSettings">Salva</button>
+        <button id="defaultSettings">Predefinito</button>
+        <button id="cancelSettings">Annulla</button>
+    </div>
+</div>
 
         <!-- Messaggio finale -->
         <p id="studyMessage">Buono studio ❤️</p>
@@ -62,3 +67,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
